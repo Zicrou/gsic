@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Etudiants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Date nasissance</th>
+      <th>Genre</th>
+      <th>Telephone</th>
+      <th>Passport</th>
+      <th>Date passport expiration</th>
+      <th>Live in campus</th>
+      <th>Adresse</th>
+      <th>Boursier</th>
+      <th>Type bourse</th>
+      <th>Annee langue chinoise</th>
+      <th>Province</th>
+      <th>Annee langue chinoise</th>
+      <th>Universite annee langue chinoise</th>
+      <th>Annee debut filiere</th>
+      <th>Province uinversite filiere</th>
+      <th>Universite filiere</th>
+      <th>Filiere</th>
+      <th>Duree formation</th>
+      <th>Annee graduate</th>
+      <th>Niveau formation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @etudiants.each do |etudiant| %>
+      <tr>
+        <td><%= etudiant.nom %></td>
+        <td><%= etudiant.prenom %></td>
+        <td><%= etudiant.date_nasissance %></td>
+        <td><%= etudiant.genre %></td>
+        <td><%= etudiant.telephone %></td>
+        <td><%= etudiant.passport %></td>
+        <td><%= etudiant.date_passport_expiration %></td>
+        <td><%= etudiant.live_in_campus %></td>
+        <td><%= etudiant.adresse %></td>
+        <td><%= etudiant.boursier %></td>
+        <td><%= etudiant.type_bourse %></td>
+        <td><%= etudiant.annee_langue_chinoise %></td>
+        <td><%= etudiant.province %></td>
+        <td><%= etudiant.annee_langue_chinoise %></td>
+        <td><%= etudiant.universite_annee_langue_chinoise %></td>
+        <td><%= etudiant.annee_debut_filiere %></td>
+        <td><%= etudiant.province_uinversite_filiere %></td>
+        <td><%= etudiant.universite_filiere %></td>
+        <td><%= etudiant.filiere %></td>
+        <td><%= etudiant.duree_formation %></td>
+        <td><%= etudiant.annee_graduate %></td>
+        <td><%= etudiant.niveau_formation %></td>
+        <td><%= link_to 'Show', etudiant %></td>
+        <td><%= link_to 'Edit', edit_etudiant_path(etudiant) %></td>
+        <td><%= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Etudiant', new_etudiant_path %>

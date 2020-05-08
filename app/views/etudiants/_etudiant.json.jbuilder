@@ -1,0 +1,2 @@
+json.extract! etudiant, :id, :nom, :prenom, :date_nasissance, :genre, :telephone, :passport, :date_passport_expiration, :live_in_campus, :adresse, :boursier, :type_bourse, :annee_langue_chinoise, :province, :annee_langue_chinoise, :universite_annee_langue_chinoise, :annee_debut_filiere, :province_uinversite_filiere, :universite_filiere, :filiere, :duree_formation, :annee_graduate, :niveau_formation, :created_at, :updated_at
+json.url etudiant_url(etudiant, format: :json)
