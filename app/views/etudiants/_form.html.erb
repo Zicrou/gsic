@@ -13,7 +13,7 @@
     <% end %>
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Information Personnelle</p>
+      <p class="" style="margin:auto;back" >Information Personnelle</p>
       <div class="form-group">
       <%= form.label :nom  ,class: "form-control"%>
       <%= form.text_field :nom ,class: "form-control"%>
@@ -65,12 +65,12 @@
     <div class="card card-block">
       <p class="" style="margin:auto;" >Informations sur la bourse</p>
       <div class="form-group">
-      <%= form.label :boursier, class: "form-control" %>
+      <%= form.label :boursier%>
       <%= form.text_field :boursier,pattern:"[OUI-NON]{0,3}", placeholder: "OUI-NON", class: "form-control"%>
     </div>
 
     <div class="form-group">
-      <%= form.label :type_boursecol, class: "form-control" %>
+      <%= form.label :type_boursecol%>
       <%= form.text_field :type_bourse, class: "form-control" %>
     </div>
     </div>
@@ -79,22 +79,22 @@
       <div class="card card-block">
         <p class="" style="margin:auto;" >L'année de langue </p>
         <div class="form-group">
-          <%= form.label "Avez-vous fait une annee de langue?", class: "form-control col-md-3"  %>
+          <%= form.label "Avez-vous fait une annee de langue?" %>
           <%= form.text_field :faire_annnee_langue_chinoise, class: "form-control"  %>
         </div>
         <span class="form-control col-md-1">si OUI</span>
         <div class="form-group">
-      <%= form.label :Province,class: "form-control" %>
+      <%= form.label :Province %>
       <%= form.text_field :province,placeholder:"EX: BEJING",class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label "En quelle année:",class: "form-control" %>
+      <%= form.label "En quelle année:" %>
       <%= form.date_field :annee_langue_chinoise,class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :universite_annee_langue_chinoise,class: "form-control" %>
+      <%= form.label :universite_annee_langue_chinoise%>
       <%= form.text_field :universite_annee_langue_chinoise,class: "form-control" %>
     </div>
       </div>
@@ -104,46 +104,38 @@
       <p class="" style="margin:auto;" >Information sur ma formation </p>
 
       <div class="form-group">
-      <%= form.label :annee_debut_filiere,class: "form-control" %>
+      <%= form.label :annee_debut_filiere %>
       <%= form.date_field :annee_debut_filiere,class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :province_uinversite_filiere,class: "form-control" %>
+      <%= form.label :province_uinversite_filiere%>
       <%= form.text_field :province_uinversite_filiere, pattern:"[A-Z]{3,255}",placeholder:"EN MAJUSCULE",class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :universite_filiere,class: "form-control" %>
+      <%= form.label :universite_filiere%>
       <%= form.text_field :universite_filiere, pattern:"[A-Z]{0,255}",placeholder:"EN MAJUSCULE",class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :filiere,class: "form-control" %>
+      <%= form.label :filiere%>
       <%= form.text_field :filiere,class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :duree_formation,class: "form-control" %>
+      <%= form.label :duree_formation%>
       <%= form.number_field :duree_formation,class: "form-control" %>
     </div>
 
-    <div class="form-group">
-      <%= form.label :duree_formation,class: "form-control" %>
-      <%= form.number_field :duree_formation,class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :langue_de_formation,class: "form-control" %>
-      <%= form.number_field :langue_de_formation,class: "form-control" %>
-    </div>
 
     <div class="form-group">
-      <%= form.label :annee_graduate, class: "form-control" %>
+      <%= form.label :annee_graduate%>
       <%= form.date_field :annee_graduate, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :niveau_formation, class: 'form-control'%>
+      <%= form.label :niveau_formation%>
       <%= form.number_field :niveau_formation, class: 'form-control'%>
     </div>
     </div>
