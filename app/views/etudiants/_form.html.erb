@@ -85,7 +85,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :typebourse_id%>
+      <%= form.label :Type_de_bourse%>
       <%= form.collection_select(:typebourse_id, Typebourse.order(:name), :id, :name,
         {
           include_blank: true
@@ -100,7 +100,12 @@
         <p class="" style="margin:auto;" >L'année de langue </p>
         <div class="form-group">
           <%= form.label "Avez-vous fait une annee de langue?" %>
-          <%= form.text_field :faire_annnee_langue_chinoise, class: "form-control"  %>
+          <%= form.collection_select(:faireanneelangue_id, Faireanneelangue.order(:name), :id, :name,
+            {
+              include_blank: true
+            },
+            class: "form-control col-md-3"
+          ) %>
         </div>
         <span class="form-control col-md-1">si OUI</span>
         <div class="form-group">

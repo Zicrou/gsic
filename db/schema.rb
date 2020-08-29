@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_181600) do
+ActiveRecord::Schema.define(version: 2020_08_29_183856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_181600) do
     t.string "adresse"
     t.date "annee_langue_chinoise"
     t.string "province"
-    t.string "faire_annnee_langue_chinoise"
     t.string "universite_annee_langue_chinoise"
     t.date "annee_debut_filiere"
     t.string "province_uinversite_filiere"
@@ -53,10 +52,18 @@ ActiveRecord::Schema.define(version: 2020_08_29_181600) do
     t.bigint "carteconsulaire_id"
     t.bigint "boursier_id"
     t.bigint "typebourse_id"
+    t.bigint "faireanneelangue_id"
     t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
+    t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"
     t.index ["genre_id"], name: "index_etudiants_on_genre_id"
     t.index ["typebourse_id"], name: "index_etudiants_on_typebourse_id"
+  end
+
+  create_table "faireanneelangues", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
@@ -73,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_181600) do
 
   add_foreign_key "etudiants", "boursiers"
   add_foreign_key "etudiants", "carteconsulaires"
+  add_foreign_key "etudiants", "faireanneelangues"
   add_foreign_key "etudiants", "genres"
   add_foreign_key "etudiants", "typebourses"
 end

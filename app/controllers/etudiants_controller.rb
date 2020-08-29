@@ -72,6 +72,6 @@ class EtudiantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def etudiant_params
-      params.require(:etudiant).permit(:nom, :prenom, :date_nasissance, :genre_id, :telephone, :passport, :date_passport_expiration, :carteconsulaire_id, :adresse, :boursier_id, :typebourse_id, :annee_langue_chinoise, :province, :annee_langue_chinoise, :universite_annee_langue_chinoise, :annee_debut_filiere, :province_uinversite_filiere, :universite_filiere, :filiere, :duree_formation, :annee_de_graduation, :niveau_formation)
+      params.require(:etudiant).permit(:nom, :prenom, :date_nasissance, :genre_id, :telephone, :passport, :date_passport_expiration, :carteconsulaire_id, :adresse, :boursier_id, :typebourse_id, :faireanneelangue_id, :province, :annee_langue_chinoise, :universite_annee_langue_chinoise, :annee_debut_filiere, :province_uinversite_filiere, :universite_filiere, :filiere, :duree_formation, :annee_de_graduation, :niveau_formation)
     end
 end

@@ -3,4 +3,5 @@ class Etudiant < ApplicationRecord
     belongs_to :carteconsulaire
     belongs_to :boursier
     belongs_to :typebourse
+    belongs_to :faireanneelangue
 end
