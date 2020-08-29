@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_102726) do
+ActiveRecord::Schema.define(version: 2020_08_29_145925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_102726) do
     t.string "nom"
     t.string "prenom"
     t.date "date_nasissance"
-    t.string "genre", limit: 1, null: false
     t.bigint "telephone"
     t.string "passport"
     t.date "date_passport_expiration"
@@ -41,6 +40,15 @@ ActiveRecord::Schema.define(version: 2020_05_08_102726) do
     t.integer "niveau_formation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "genre_id"
+    t.index ["genre_id"], name: "index_etudiants_on_genre_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "etudiants", "genres"
 end
