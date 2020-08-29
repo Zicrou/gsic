@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_160035) do
+ActiveRecord::Schema.define(version: 2020_08_29_161712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boursiers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "carteconsulaires", force: :cascade do |t|
     t.string "name"
@@ -29,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_160035) do
     t.string "passport"
     t.date "date_passport_expiration"
     t.string "adresse"
-    t.string "boursier"
     t.string "type_bourse"
     t.date "annee_langue_chinoise"
     t.string "province"
@@ -47,6 +52,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_160035) do
     t.datetime "updated_at", null: false
     t.bigint "genre_id"
     t.bigint "carteconsulaire_id"
+    t.bigint "boursier_id"
+    t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["genre_id"], name: "index_etudiants_on_genre_id"
   end
@@ -57,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_160035) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "etudiants", "boursiers"
   add_foreign_key "etudiants", "carteconsulaires"
   add_foreign_key "etudiants", "genres"
 end

@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Boursiers</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @boursiers.each do |boursier| %>
+        <tr>
+          <td><%= boursier.name %></td>
+          <td><%= link_to 'Show', boursier %></td>
+          <td><%= link_to 'Edit', edit_boursier_path(boursier) %></td>
+          <td><%= link_to 'Destroy', boursier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Boursier', new_boursier_path %>
+</main>
