@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carteconsulaires
   resources :genres
   resources :etudiants
   root to: 'pages#home'

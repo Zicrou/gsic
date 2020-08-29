@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_145925) do
+ActiveRecord::Schema.define(version: 2020_08_29_160035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carteconsulaires", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "etudiants", force: :cascade do |t|
     t.string "nom"
@@ -22,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_145925) do
     t.bigint "telephone"
     t.string "passport"
     t.date "date_passport_expiration"
-    t.string "live_in_campus"
     t.string "adresse"
     t.string "boursier"
     t.string "type_bourse"
@@ -41,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_145925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "genre_id"
+    t.bigint "carteconsulaire_id"
+    t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["genre_id"], name: "index_etudiants_on_genre_id"
   end
 
@@ -50,5 +57,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_145925) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "etudiants", "carteconsulaires"
   add_foreign_key "etudiants", "genres"
 end

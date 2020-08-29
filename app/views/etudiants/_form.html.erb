@@ -55,8 +55,13 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :live_in_campus  ,class: "form-control"%>
-      <%= form.text_field :live_in_campus,pattern:"[OUI-NON]{0,3}",size:8, placeholder:"OUI-NON"  ,class: "form-control"%>
+      <%= form.label :carteconsulaire_id  ,class: "form-control"%>
+      <%= form.collection_select(:carteconsulaire_id, Carteconsulaire.order(:name), :id, :name,
+        {
+          include_blank: true
+        },
+        class: "form-control col-md-3"
+      ) %>
     </div>
 
     <div class="form-group">
