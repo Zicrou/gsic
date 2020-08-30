@@ -109,9 +109,14 @@
         </div>
         <span class="form-control col-md-1">si OUI</span>
         <div class="form-group">
-      <%= form.label :Province %>
-      <%= form.text_field :province,placeholder:"EX: BEJING",class: "form-control" %>
-    </div>
+          <%= form.label :Province %>
+          <%= form.collection_select(:province_id, Province.order(:name), :id, :name,
+              {
+                include_blank: true
+              },
+              class: "form-control col-md-3"
+            ) %>
+      </div>
 
     <div class="form-group">
       <%= form.label "En quelle année:" %>
