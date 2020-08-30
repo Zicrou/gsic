@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_042758) do
+ActiveRecord::Schema.define(version: 2020_08_30_090507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_08_30_042758) do
     t.string "nom"
     t.string "prenom"
     t.date "date_nasissance"
-    t.bigint "telephone"
     t.string "passport"
     t.date "date_passport_expiration"
     t.string "adresse"
@@ -54,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_08_30_042758) do
     t.bigint "faireanneelangue_id"
     t.bigint "province_id"
     t.bigint "langueformation_id"
+    t.bigint "universitefiliere_id"
+    t.string "telephone"
     t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_042758) do
     t.index ["langueformation_id"], name: "index_etudiants_on_langueformation_id"
     t.index ["province_id"], name: "index_etudiants_on_province_id"
     t.index ["typebourse_id"], name: "index_etudiants_on_typebourse_id"
+    t.index ["universitefiliere_id"], name: "index_etudiants_on_universitefiliere_id"
   end
 
   create_table "faireanneelangues", force: :cascade do |t|
@@ -93,6 +95,22 @@ ActiveRecord::Schema.define(version: 2020_08_30_042758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "universitefilieres", force: :cascade do |t|
+    t.string "name"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_universitefilieres_on_province_id"
+  end
+
+  create_table "universitelangues", force: :cascade do |t|
+    t.string "name"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_universitelangues_on_province_id"
+  end
+
   add_foreign_key "etudiants", "boursiers"
   add_foreign_key "etudiants", "carteconsulaires"
   add_foreign_key "etudiants", "faireanneelangues"
@@ -100,4 +118,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_042758) do
   add_foreign_key "etudiants", "langueformations"
   add_foreign_key "etudiants", "provinces"
   add_foreign_key "etudiants", "typebourses"
+  add_foreign_key "etudiants", "universitefilieres"
+  add_foreign_key "universitefilieres", "provinces"
+  add_foreign_key "universitelangues", "provinces"
 end

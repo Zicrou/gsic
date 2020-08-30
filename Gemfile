@@ -57,3 +57,4 @@ gem 'pry-byebug'
 
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+gem 'gritter', '~> 1.2'
