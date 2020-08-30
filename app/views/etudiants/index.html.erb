@@ -23,7 +23,7 @@
         </div>
       </section-->
 
-      <h2>Section title</h2>
+      <!-- h2>Section title</h2 -->
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -31,9 +31,15 @@
               <th>Nom</th>
               <th>Prenom</th>
               <th>Date de Naissance</th>
+              
               <th>Telephone</th>
               <th>Passport</th>
-              <th>Date passport expiration</th>
+              <th>Universite</th>
+              <th>Filiére</th>
+              <th>Durée de Formation</th>
+              <th>Anée de Graduation</th>
+              <th>Niveau de Formation</th>
+              <!--th>Date passport expiration</th>
               <th>Boursier</th>
               <th>Annee debut filiere</th>
               <th>Province uinversite filiere</th>
@@ -48,7 +54,7 @@
               <th>Adresse</th>
               <th>Annee langue chinoise</th>
               <th>Province</th>
-              <th>Universite annee langue chinoise</th>
+              <th>Universite annee langue chinoise</th-->
             </tr>
           </thead>
           <tbody>
@@ -57,34 +63,66 @@
         <td><%= etudiant.nom %></td>
         <td><%= etudiant.prenom %></td>
         <td><%= etudiant.date_nasissance %></td>
-        <td><%= etudiant.genre.name %></td>
+        
         <td><%= etudiant.telephone %></td>
         <td><%= etudiant.passport %></td>
-        <td><%= etudiant.date_passport_expiration %></td>
-        <td><%= etudiant.carteconsulaire.name %></td>
-        <td><%= etudiant.adresse %></td>
-        <td><%= etudiant.boursier.name %></td>
-        <td><%= etudiant.typebourse.name %></td>
-        <td><%= etudiant.annee_langue_chinoise %></td>
-        <td><%= etudiant.province.name %></td>
-        <td><%= etudiant.annee_langue_chinoise %></td>
-        <td><%= etudiant.universite_annee_langue_chinoise %></td>
-        <td><%= etudiant.annee_debut_filiere %></td>
-        <td><%= etudiant.province_uinversite_filiere %></td>
         <td><%= etudiant.universite_filiere %></td>
         <td><%= etudiant.filiere %></td>
         <td><%= etudiant.duree_formation %></td>
         <td><%= etudiant.annee_de_graduation %></td>
         <td><%= etudiant.niveau_formation %></td>
-        <td><%= link_to 'Show', etudiant %></td>
-        <td><%= link_to 'Edit', edit_etudiant_path(etudiant) %></td>
-        <td><%= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="btn btn-primary" style="margin: 0.6em;" data-toggle="modal" data-target="#exampleModalLong">
+            Voir Information
+        </td>
+        <!--td><%#= link_to 'Show', etudiant %></td-->
+        <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" %></td>
+        <!--td><%#= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
       </tr>
+
+
+
+      <!-- Modal -->
+      <% @etudiants.each do |etudiant| %>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%= etudiant.nom + etudiant.prenom  %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Expiration du passport: <%= etudiant.date_passport_expiration %></p>
+        <p>Carte Consulaire: <%= etudiant.carteconsulaire.name %></p>
+        <p>Adresse: <%= etudiant.adresse %></p>
+        <p>Boursier: <%= etudiant.boursier.name %></p>
+        <p>Type de Bourse: <%= etudiant.typebourse.name %></p>
+        <p>A fait une annee de langue chinoise: <%= etudiant.faireanneelangue.name %></p>
+        <p>Province(langue chinoise): <%= etudiant.province.name %></p>
+        <p>Année de la langue: <%= etudiant.annee_langue_chinoise %></p>
+        <p>Universite de la langue: <%= etudiant.universite_annee_langue_chinoise %></p>
+        <p>Année début de Filiére: <%= etudiant.annee_debut_filiere %></p>
+        <p>Province (Université filiére): <%= etudiant.province_uinversite_filiere %></p>
+        <p>Filiére: <%= etudiant.universite_filiere %></p>
+        <p>Formation en : <%= etudiant.langueformation.name %></p>
+        <p>Durée de la formation: <%= etudiant.duree_formation %></p>
+        <p>Année de Graduation: <%= etudiant.annee_de_graduation %></p>
+        <p>Niveau de Formation: <%= etudiant.niveau_formation %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
     <% end %>
           </tbody>
         </table>
       </div>
-    </main>
 
 
-<%= link_to 'New Etudiant', new_etudiant_path %>
+      <%= link_to 'New Etudiant', new_etudiant_path %>
+</main>
