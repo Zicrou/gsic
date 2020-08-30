@@ -97,9 +97,9 @@
         <p>Carte Consulaire: <%= etudiant.carteconsulaire.name %></p>
         <p>Adresse: <%= etudiant.adresse %></p>
         <p>Boursier: <%= etudiant.boursier.name %></p>
-        <p>Type de Bourse: <%= etudiant.typebourse.name %></p>
+        <p>Type de Bourse: <%= etudiant.typebourse.name if !etudiant.typebourse.nil? %></p>
         <p>A fait une annee de langue chinoise: <%= etudiant.faireanneelangue.name %></p>
-        <p>Province(langue chinoise): <%= etudiant.province.name %></p>
+        <p>Province(langue chinoise): <%= etudiant.province.name if !etudiant.province.nil? %></p>
         <p>Année de la langue: <%= etudiant.annee_langue_chinoise %></p>
         <p>Universite de la langue: <%= etudiant.universite_annee_langue_chinoise %></p>
         <p>Année début de Filiére: <%= etudiant.annee_debut_filiere %></p>
@@ -124,5 +124,5 @@
       </div>
 
 
-      <%= link_to 'New Etudiant', new_etudiant_path %>
+      <%#= link_to 'New Etudiant', new_etudiant_path %>
 </main>

@@ -57,11 +57,11 @@ class EtudiantsController < ApplicationController
   # DELETE /etudiants/1
   # DELETE /etudiants/1.json
   def destroy
-    @etudiant.destroy
-    respond_to do |format|
-      format.html { redirect_to etudiants_url, notice: 'Etudiant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    #@etudiant.destroy
+    #respond_to do |format|
+    #  format.html { redirect_to etudiants_url, notice: 'Etudiant was successfully destroyed.' }
+    #  format.json { head :no_content }
+   # end
   end
 
   private
