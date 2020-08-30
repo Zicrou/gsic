@@ -1,0 +1,11 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @genre.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_genre_path(@genre) %> |
+  <%= link_to 'Back', genres_path %>
+</main>

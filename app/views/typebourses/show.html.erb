@@ -1,0 +1,11 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @typebourse.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_typebourse_path(@typebourse) %> |
+  <%= link_to 'Back', typebourses_path %>
+</main>

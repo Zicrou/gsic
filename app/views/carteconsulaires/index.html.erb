@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Carteconsulaires</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @carteconsulaires.each do |carteconsulaire| %>
+        <tr>
+          <td><%= carteconsulaire.name %></td>
+          <td><%= link_to 'Show', carteconsulaire %></td>
+          <td><%= link_to 'Edit', edit_carteconsulaire_path(carteconsulaire) %></td>
+          <td><%= link_to 'Destroy', carteconsulaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Carteconsulaire', new_carteconsulaire_path %>
+</main>

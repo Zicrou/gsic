@@ -1,116 +1,121 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @etudiant.nom %>
-</p>
+  <p>
+    <strong>Nom:</strong>
+    <%= @etudiant.nom %>
+  </p>
 
-<p>
-  <strong>Prenom:</strong>
-  <%= @etudiant.prenom %>
-</p>
+  <p>
+    <strong>Prenom:</strong>
+    <%= @etudiant.prenom %>
+  </p>
 
-<p>
-  <strong>Date nasissance:</strong>
-  <%= @etudiant.date_nasissance %>
-</p>
+  <p>
+    <strong>Date nasissance:</strong>
+    <%= @etudiant.date_nasissance %>
+  </p>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @etudiant.genre %>
-</p>
+  <p>
+    <strong>Genre:</strong>
+    <%= @etudiant.genre.name %>
+  </p>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @etudiant.telephone %>
-</p>
+  <p>
+    <strong>Telephone:</strong>
+    <%= @etudiant.telephone %>
+  </p>
 
-<p>
-  <strong>Passport:</strong>
-  <%= @etudiant.passport %>
-</p>
+  <p>
+    <strong>Passport:</strong>
+    <%= @etudiant.passport %>
+  </p>
 
-<p>
-  <strong>Date passport expiration:</strong>
-  <%= @etudiant.date_passport_expiration %>
-</p>
+  <p>
+    <strong>Date passport expiration:</strong>
+    <%= @etudiant.date_passport_expiration %>
+  </p>
 
-<p>
-  <strong>Live in campus:</strong>
-  <%= @etudiant.live_in_campus %>
-</p>
+  <p>
+    <strong>Carte Consulaire:</strong>
+    <%= @etudiant.carteconsulaire.name %>
+  </p>
 
-<p>
-  <strong>Adresse:</strong>
-  <%= @etudiant.adresse %>
-</p>
+  <p>
+    <strong>Adresse:</strong>
+    <%= @etudiant.adresse %>
+  </p>
 
-<p>
-  <strong>Boursier:</strong>
-  <%= @etudiant.boursier %>
-</p>
+  <p>
+    <strong>Boursier:</strong>
+    <%= @etudiant.boursier.name %>
+  </p>
 
-<p>
-  <strong>Type bourse:</strong>
-  <%= @etudiant.type_bourse %>
-</p>
+  <p>
+    <strong>Type de bourse:</strong>
+    <%= @etudiant.typebourse.name %>
+  </p>
 
-<p>
-  <strong>Annee langue chinoise:</strong>
-  <%= @etudiant.annee_langue_chinoise %>
-</p>
+  <p>
+    <strong>Faire Annee de langue chinoise:</strong>
+    <%= @etudiant.faireanneelangue.name %>
+  </p>
 
-<p>
-  <strong>Province:</strong>
-  <%= @etudiant.province %>
-</p>
+  <p>
+    <strong>Province:</strong>
+    <%= @etudiant.province.name %>
+  </p>
 
-<p>
-  <strong>Annee langue chinoise:</strong>
-  <%= @etudiant.annee_langue_chinoise %>
-</p>
+  <p>
+    <strong>Annee langue chinoise:</strong>
+    <%= @etudiant.annee_langue_chinoise %>
+  </p>
 
-<p>
-  <strong>Universite annee langue chinoise:</strong>
-  <%= @etudiant.universite_annee_langue_chinoise %>
-</p>
+  <p>
+    <strong>Universite annee langue chinoise:</strong>
+    <%= @etudiant.universite_annee_langue_chinoise %>
+  </p>
 
-<p>
-  <strong>Annee debut filiere:</strong>
-  <%= @etudiant.annee_debut_filiere %>
-</p>
+  <p>
+    <strong>Annee debut filiere:</strong>
+    <%= @etudiant.annee_debut_filiere %>
+  </p>
 
-<p>
-  <strong>Province uinversite filiere:</strong>
-  <%= @etudiant.province_uinversite_filiere %>
-</p>
+  <p>
+    <strong>Province uinversite filiere:</strong>
+    <%= @etudiant.province_uinversite_filiere %>
+  </p>
 
-<p>
-  <strong>Universite filiere:</strong>
-  <%= @etudiant.universite_filiere %>
-</p>
+  <p>
+    <strong>Universite filiere:</strong>
+    <%= @etudiant.universite_filiere %>
+  </p>
 
-<p>
-  <strong>Filiere:</strong>
-  <%= @etudiant.filiere %>
-</p>
+  <p>
+    <strong>Filiere:</strong>
+    <%= @etudiant.filiere %>
+  </p>
 
-<p>
-  <strong>Duree formation:</strong>
-  <%= @etudiant.duree_formation %>
-</p>
+  <p>
+    <strong>Langue de Formation:</strong>
+    <%= @etudiant.langueformation.name %>
+  </p>
 
-<p>
-  <strong>Annee graduate:</strong>
-  <%= @etudiant.annee_de_graduation %>
-</p>
+  <p>
+    <strong>Duree formation:</strong>
+    <%= @etudiant.duree_formation %>
+  </p>
 
-<p>
-  <strong>Niveau formation:</strong>
-  <%= @etudiant.niveau_formation %>
-</p>
+  <p>
+    <strong>Annee graduate:</strong>
+    <%= @etudiant.annee_de_graduation %>
+  </p>
 
-<%= link_to 'Edit', edit_etudiant_path(@etudiant) %> |
-<%= link_to 'Back', etudiants_path %>
+  <p>
+    <strong>Niveau formation:</strong>
+    <%= @etudiant.niveau_formation %>
+  </p>
+
+  <%= link_to 'Edit', edit_etudiant_path(@etudiant) %> |
+  <%= link_to 'Back', etudiants_path %>
 </main>

@@ -1,0 +1,2 @@
+module FaireanneelanguesHelper
+end

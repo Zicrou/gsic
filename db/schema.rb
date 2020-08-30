@@ -10,26 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_102726) do
+ActiveRecord::Schema.define(version: 2020_08_30_090507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boursiers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carteconsulaires", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "etudiants", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
     t.date "date_nasissance"
-    t.string "genre", limit: 1, null: false
-    t.bigint "telephone"
     t.string "passport"
     t.date "date_passport_expiration"
-    t.string "live_in_campus"
     t.string "adresse"
-    t.string "boursier"
-    t.string "type_bourse"
     t.date "annee_langue_chinoise"
-    t.string "province"
-    t.string "faire_annnee_langue_chinoise"
     t.string "universite_annee_langue_chinoise"
     t.date "annee_debut_filiere"
     t.string "province_uinversite_filiere"
@@ -41,6 +46,79 @@ ActiveRecord::Schema.define(version: 2020_05_08_102726) do
     t.integer "niveau_formation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "genre_id"
+    t.bigint "carteconsulaire_id"
+    t.bigint "boursier_id"
+    t.bigint "typebourse_id"
+    t.bigint "faireanneelangue_id"
+    t.bigint "province_id"
+    t.bigint "langueformation_id"
+    t.bigint "universitefiliere_id"
+    t.string "telephone"
+    t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
+    t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
+    t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"
+    t.index ["genre_id"], name: "index_etudiants_on_genre_id"
+    t.index ["langueformation_id"], name: "index_etudiants_on_langueformation_id"
+    t.index ["province_id"], name: "index_etudiants_on_province_id"
+    t.index ["typebourse_id"], name: "index_etudiants_on_typebourse_id"
+    t.index ["universitefiliere_id"], name: "index_etudiants_on_universitefiliere_id"
   end
 
+  create_table "faireanneelangues", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "langueformations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "typebourses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "universitefilieres", force: :cascade do |t|
+    t.string "name"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_universitefilieres_on_province_id"
+  end
+
+  create_table "universitelangues", force: :cascade do |t|
+    t.string "name"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_universitelangues_on_province_id"
+  end
+
+  add_foreign_key "etudiants", "boursiers"
+  add_foreign_key "etudiants", "carteconsulaires"
+  add_foreign_key "etudiants", "faireanneelangues"
+  add_foreign_key "etudiants", "genres"
+  add_foreign_key "etudiants", "langueformations"
+  add_foreign_key "etudiants", "provinces"
+  add_foreign_key "etudiants", "typebourses"
+  add_foreign_key "etudiants", "universitefilieres"
+  add_foreign_key "universitefilieres", "provinces"
+  add_foreign_key "universitelangues", "provinces"
 end
