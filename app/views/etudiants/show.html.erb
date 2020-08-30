@@ -53,7 +53,7 @@
 
   <p>
     <strong>Type de bourse:</strong>
-    <%= @etudiant.typebourse.name %>
+    <%= @etudiant.typebourse.name if !@etudiant.typebourse.nil? %>
   </p>
 
   <p>
@@ -63,7 +63,7 @@
 
   <p>
     <strong>Province:</strong>
-    <%= @etudiant.province.name %>
+    <%= @etudiant.province.name if !@etudiant.province.nil? %>
   </p>
 
   <p>
