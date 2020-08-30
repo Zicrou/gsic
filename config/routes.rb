@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :langueformations
   resources :provinces
   resources :faireanneelangues
   resources :typebourses

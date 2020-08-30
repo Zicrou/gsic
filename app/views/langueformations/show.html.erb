@@ -1,0 +1,11 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @langueformation.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_langueformation_path(@langueformation) %> |
+  <%= link_to 'Back', langueformations_path %>
+</main>

@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Langueformations</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @langueformations.each do |langueformation| %>
+        <tr>
+          <td><%= langueformation.name %></td>
+          <td><%= link_to 'Show', langueformation %></td>
+          <td><%= link_to 'Edit', edit_langueformation_path(langueformation) %></td>
+          <td><%= link_to 'Destroy', langueformation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Langueformation', new_langueformation_path %>
+</main>
