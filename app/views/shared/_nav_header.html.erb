@@ -2,16 +2,23 @@
   <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <%= link_to "Dashboard", root_path(), class: 'navbar-brand'  %>
+  <% if logged_in?(:site_admin) %>
+    <%= link_to "Dashboard(AESC)", etudiants_path, class: 'navbar-brand'%>
+  <% elsif %>
+    <span class="navbar-brand">AESC</span>
+  <% end %>
+  
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "S'inscrire", new_etudiant_path, class: 'nav-link'  %>
-      </li>
-      <!--li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
+      
+      
+      <li class="nav-item">
+        <%= nav_helper 'nav-link', 'span' %>
       </li>
       <li class="nav-item">
+        <%= login_helper 'nav-link' %>
+      </li>
+      <!--li class="nav-item">
         <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item">

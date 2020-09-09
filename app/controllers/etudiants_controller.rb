@@ -3,10 +3,18 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
+  access all: [:show, :new, :create, :edit, :update,], user: {except: [:destroy]}, site_admin: :all
+
+
   # GET /etudiants
   # GET /etudiants.json
   def index
-    @etudiants = Etudiant.all
+    if logged_in?(:site_admin, :responsable_zone, :president)
+      @etudiants = Etudiant.all
+      render :index
+    else
+      redirect_to new_etudiant_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
+    end
   end
 
   # GET /etudiants/1
@@ -57,11 +65,15 @@ class EtudiantsController < ApplicationController
   # DELETE /etudiants/1
   # DELETE /etudiants/1.json
   def destroy
-    #@etudiant.destroy
-    #respond_to do |format|
-    #  format.html { redirect_to etudiants_url, notice: 'Etudiant was successfully destroyed.' }
-    #  format.json { head :no_content }
-   # end
+    if logged_in?(:site_admin)
+      @etudiant.destroy
+      respond_to do |format|
+        format.html { redirect_to etudiants_url, notice: 'Etudiant was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to etudiants_path, notice:"Vous n'êtes pas autorisé à acceder à cette page"
+    end
   end
 
   private

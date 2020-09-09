@@ -9,6 +9,9 @@ application up and running.
 
 Things you may want to cover:
 
+* Implement Devise
+* Upload photos
+* 
 * Ruby version
 
 * System dependencies
