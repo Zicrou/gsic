@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access all: [:show, :new, :create, :edit, :update,], user: {except: [:destroy]}, site_admin: :all
+  access all: [:show, :new, :create, :edit, :update,], user: {except: [:destroy]}, site_admin: :all,  responsable_zone: {except: [:destroy]}, president: {except: [:destroy]}
 
 
   # GET /etudiants
