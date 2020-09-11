@@ -2,8 +2,9 @@
   <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <% if logged_in?(:site_admin) %>
-    <%= link_to "Dashboard(AESC)", etudiants_path, class: 'navbar-brand'%>
+  <% if logged_in?(:site_admin, :president, :responsable_zone) %>
+  <span class="" style="color:white;"><%= current_user.role%></span> <%= link_to "Dashboard(AESC)", etudiants_path, class: 'navbar-brand'%>
+    
   <% elsif %>
     <span class="navbar-brand">AESC</span>
   <% end %>
