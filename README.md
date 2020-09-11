@@ -10,7 +10,7 @@ application up and running.
 Things you may want to cover:
 
 * Implement Devise
-* Upload photos
+* Upload photos = Add and style uploader buttom
 * 
 * Ruby version
 

@@ -6,7 +6,20 @@
   <% end %>
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Information Personnelle</p>
+      <p class="" style="margin:auto;" >Informations Personnelles</p>
+      
+      <div class="form-group">
+        <label class="btn btn-primary">
+          Ma photo <%= form.file_field :photo ,style:"display:none;"%>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="btn btn-primary">
+          Passeport<%= form.file_field :passport_image ,style:"display:none;"%>
+        </label>
+      </div>
+      
       <div class="form-group">
         <%= form.label :nom, class: ""%>
         <%= form.text_field :nom ,class: "form-control col-md-3"%>

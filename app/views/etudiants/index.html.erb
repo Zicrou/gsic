@@ -93,6 +93,17 @@
         </button>
       </div>
       <div class="modal-body">
+        <% if !etudiant.photo.nil? %>
+          <p>Photo: <%= image_tag etudiant.photo.to_s if !etudiant.photo.nil? %></p>
+        <% else %>
+        <p>Photo: Pas de photo</p>
+        <% end %>
+        <% if etudiant.passport_image.nil? %>
+          <p>Passeport: Pas de photo du passeport </p>
+        <% else %>
+          <%= image_tag etudiant.passport_image.to_s %>
+        <%end%>
+        
         <p>Expiration du passport: <%= etudiant.date_passport_expiration %></p>
         <p>Carte Consulaire: <%= etudiant.carteconsulaire.name %></p>
         <p>Adresse: <%= etudiant.adresse %></p>

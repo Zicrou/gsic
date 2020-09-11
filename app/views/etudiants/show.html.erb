@@ -1,6 +1,15 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <p id="notice"><%= notice %></p>
+  <p style="width:300px;">
+    <strong>Photo:</strong>
+    <%= image_tag @etudiant.photo.to_s %>
+  </p>
 
+  <p style="width:300px;">
+    <strong>Passeport image:</strong>
+    <%= image_tag @etudiant.passport_image.to_s %>
+  </p>
+  <hr>
   <p>
     <strong>Nom:</strong>
     <%= @etudiant.nom %>
