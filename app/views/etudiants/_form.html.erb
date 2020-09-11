@@ -74,6 +74,16 @@
         <%= form.label :adresse  ,class: ""%>
         <%= form.text_field :adresse  ,class: "form-control col-md-4"%>
       </div>
+
+      <div class="form-group">
+        <%= form.label :Êtes_vous_en_chine_? %>
+        <%= form.collection_select(:etreenchine, YesNo.order(:name), :name, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+        ) %>
+      </div>
     </div>
     <br>
 

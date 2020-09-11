@@ -1,0 +1,2 @@
+class YesNo < ApplicationRecord
+end
