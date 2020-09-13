@@ -31,7 +31,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :date_nasissance  ,class: ""%>
+        <%= form.label :date_naissance  ,class: ""%>
         <%= form.date_field :date_nasissance  ,class: "form-control col-md-3"%>
       </div>
 
@@ -61,7 +61,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :carteconsulaire_id  ,class: ""%>
+        <%= form.label :carte_consulaire_id  ,class: ""%>
         <%= form.collection_select(:carteconsulaire_id, Carteconsulaire.order(:name), :id, :name,
           {
             include_blank: true
@@ -147,15 +147,15 @@
     <br>
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Information sur ma formation </p>
+      <p class="" style="margin:auto;" >Informations sur ma formation </p>
 
       <div class="form-group">
-      <%= form.label :annee_debut_filiere %>
+      <%= form.label :annee_début_formation %>
       <%= form.date_field :annee_debut_filiere,class: "form-control col-md-3" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :province_uinversite_filiere%>
+      <%= form.label "Province d'étude" %>
       <%= form.collection_select(:province_uinversite_filiere, Province.order(:name), :name, :name,
           {
             include_blank: true
@@ -165,17 +165,17 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :universite_filiere%>
+      <%= form.label :universite_de_formation%>
       <%= form.text_field :universite_filiere,class: "form-control col-md-3" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :filiere%>
+      <%= form.label :filiére%>
       <%= form.text_field :filiere, class: "form-control col-md-3" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :Langue_de_Formation  %>
+      <%= form.label :Langue_de_formation  %>
       <%= form.collection_select(:langueformation_id, Langueformation.order(:name), :id, :name,
         {
           include_blank: true

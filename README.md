@@ -11,7 +11,7 @@ Things you may want to cover:
 
 * Implement Devise
 * Upload photos = Add and style uploader buttom
-* 
+* Complement_de_Bouree
 * Ruby version
 
 * System dependencies

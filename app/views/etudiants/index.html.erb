@@ -96,13 +96,13 @@
       </div>
       <div class="modal-body">
         <% if !etudiant.photo.nil? %>
-        <p style="width:300px;">Photo: <%= image_tag etudiant.photo.to_s %></p>
+        <p style="width:30%;">Photo: <%= image_tag etudiant.photo.to_s %></p>
         <% else %>
           <p>Photo: Pas de photo</p>
         <% end %>
       
         <% if !etudiant.passport_image.nil? %>
-          <p style="width:300px;">Passeport: <%= image_tag etudiant.passport_image.to_s %> </p>
+          <p style="width:30%;">Passeport: <%= image_tag etudiant.passport_image.to_s %> </p>
         <% else %>
           <p>Passeport: Pas de photo du passeport </p>
         <%end%>
