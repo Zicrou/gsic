@@ -6,7 +6,7 @@
   <% end %>
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Informations Personnelles</p>
+      <p class="style" style="" >INFORMATIONS PERSONNELLES</p>
       
       <div class="form-group">
         <label class="btn btn-primary">
@@ -31,7 +31,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :date_naissance  ,class: ""%>
+        <%= form.label :date_de_naissance  ,class: ""%>
         <%= form.date_field :date_nasissance  ,class: "form-control col-md-3"%>
       </div>
 
@@ -56,7 +56,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :date_passport_expiration  ,class: ""%>
+        <%= form.label :date_passeport_expiration  ,class: ""%>
         <%= form.date_field :date_passport_expiration  ,class: "form-control col-md-3"%>
       </div>
 
@@ -89,7 +89,8 @@
 
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Informations sur la bourse</p>
+      <p class="style" style="margin:auto;" >Informations sur la bourse</p>
+      
       <div class="form-group">
         <%= form.label :boursier_id%>
         <%= form.collection_select(:boursier_id, Boursier.order(:name), :id, :name,
@@ -113,9 +114,10 @@
 
   <br>
       <div class="card card-block">
-        <p class="" style="margin:auto;" >Année de langue </p>
+        <p class="style" style="margin:auto;" >Année de langue </p>
+        
         <div class="form-group">
-          <%= form.label "Avez-vous fait une annee de langue?" %>
+          <%= form.label "Avez-vous fait une année de langue?" %>
           <%= form.collection_select(:faireanneelangue_id, Faireanneelangue.order(:name), :id, :name,
             {
               include_blank: true
@@ -140,17 +142,17 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :universite_annee_langue_chinoise%>
+      <%= form.label :universite_année_langue_chinoise%>
       <%= form.text_field :universite_annee_langue_chinoise,class: "form-control col-md-3" %>
     </div>
       </div>
     <br>
 
     <div class="card card-block">
-      <p class="" style="margin:auto;" >Informations sur ma formation </p>
-
+      <p class="style" style="margin:auto;" >Informations sur ma formation </p>
+      
       <div class="form-group">
-      <%= form.label :annee_début_formation %>
+      <%= form.label :année_début_formation %>
       <%= form.date_field :annee_debut_filiere,class: "form-control col-md-3" %>
     </div>
 
@@ -165,7 +167,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :universite_de_formation%>
+      <%= form.label :université_de_formation%>
       <%= form.text_field :universite_filiere,class: "form-control col-md-3" %>
     </div>
 
@@ -185,13 +187,13 @@
       </div>
 
     <div class="form-group">
-      <%= form.label :duree_formation%>
+      <%= form.label :durée_de_la_formation%>
       <%= form.number_field :duree_formation,class: "form-control col-md-3" %>
     </div>
 
 
     <div class="form-group">
-      <%= form.label :annee_de_graduation%>
+      <%= form.label :année_de_graduation%>
       <%= form.date_field :annee_de_graduation, class: "form-control col-md-3" %>
     </div>
 
