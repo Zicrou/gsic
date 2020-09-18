@@ -10,6 +10,7 @@ module CurrentUserConcern extend ActiveSupport::Concern
 		guest.first_name = "Guest"
 		guest.last_name = "User"
 		guest.email = "guest@example.ziz"
+		guest.role = "guest_user"
 		guest
     end
 end

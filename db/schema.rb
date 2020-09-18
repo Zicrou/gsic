@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_171759) do
+ActiveRecord::Schema.define(version: 2020_09_18_152811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_171759) do
     t.integer "duree_formation"
     t.string "langue_de_formation"
     t.date "annee_de_graduation"
-    t.integer "niveau_formation"
+    t.string "niveau_formation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "genre_id"
@@ -79,14 +79,18 @@ ActiveRecord::Schema.define(version: 2020_09_11_171759) do
     t.string "photo"
     t.string "passport_image"
     t.string "etreenchine"
+    t.bigint "user_id"
+    t.bigint "niveauformation_id"
     t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"
     t.index ["genre_id"], name: "index_etudiants_on_genre_id"
     t.index ["langueformation_id"], name: "index_etudiants_on_langueformation_id"
+    t.index ["niveauformation_id"], name: "index_etudiants_on_niveauformation_id"
     t.index ["province_id"], name: "index_etudiants_on_province_id"
     t.index ["typebourse_id"], name: "index_etudiants_on_typebourse_id"
     t.index ["universitefiliere_id"], name: "index_etudiants_on_universitefiliere_id"
+    t.index ["user_id"], name: "index_etudiants_on_user_id"
   end
 
   create_table "faireanneelangues", force: :cascade do |t|
@@ -102,6 +106,12 @@ ActiveRecord::Schema.define(version: 2020_09_11_171759) do
   end
 
   create_table "langueformations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "niveauformations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -160,9 +170,11 @@ ActiveRecord::Schema.define(version: 2020_09_11_171759) do
   add_foreign_key "etudiants", "faireanneelangues"
   add_foreign_key "etudiants", "genres"
   add_foreign_key "etudiants", "langueformations"
+  add_foreign_key "etudiants", "niveauformations"
   add_foreign_key "etudiants", "provinces"
   add_foreign_key "etudiants", "typebourses"
   add_foreign_key "etudiants", "universitefilieres"
+  add_foreign_key "etudiants", "users"
   add_foreign_key "universitefilieres", "provinces"
   add_foreign_key "universitelangues", "provinces"
 end

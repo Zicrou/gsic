@@ -4,7 +4,6 @@
       <%= alert_generator error %>
     <% end %>
   <% end %>
-
     <div class="card card-block">
       <p class="style" style="" >INFORMATIONS PERSONNELLES</p>
       
@@ -188,7 +187,7 @@
 
     <div class="form-group">
       <%= form.label :durée_de_la_formation%>
-      <%= form.number_field :duree_formation,class: "form-control col-md-3" %>
+      <%= form.text_field :duree_formation,class: "form-control col-md-3" %>
     </div>
 
 
@@ -199,7 +198,12 @@
 
     <div class="form-group">
       <%= form.label :niveau_formation%>
-      <%= form.number_field :niveau_formation, class: "form-control col-md-3"%>
+      <%= form.collection_select(:niveau_formation, Niveauformation.order(:name), :name, :name,
+        {
+          include_blank: true
+        },
+        class: "form-control col-md-3"
+      ) %>
     </div>
     </div>
 

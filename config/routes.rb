@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :niveauformations
+  get 'page/index'
   resources :yes_nos
   devise_for :users, path: '', path_names: {sign_in: 'Login', sign_out: 'Logout', sign_up: 'Register'}
   resources :langueformations
@@ -9,6 +11,9 @@ Rails.application.routes.draw do
   resources :carteconsulaires
   resources :genres
   resources :etudiants
-  root to: 'etudiants#new'
+  root to: 'page#index'
+  #devise_scope :user do
+  #  root to: "devise/sessions#new"
+  #end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

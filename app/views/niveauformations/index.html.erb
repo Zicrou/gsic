@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Niveauformations</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @niveauformations.each do |niveauformation| %>
+        <tr>
+          <td><%= niveauformation.name %></td>
+          <td><%= link_to 'Show', niveauformation %></td>
+          <td><%= link_to 'Edit', edit_niveauformation_path(niveauformation) %></td>
+          <td><%= link_to 'Destroy', niveauformation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Niveauformation', new_niveauformation_path %>
+</main>

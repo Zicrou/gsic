@@ -3,13 +3,13 @@ module ApplicationHelper
       def login_helper style=''
         if current_user.is_a?(GuestUser) 
           link_to "", "#"
-          #(link_to "Se Connecter", new_user_session_path, class: style) +
-          #" ".html_safe +
-          #(link_to "Register", new_user_registration_path, class: style)
+          (link_to "Se Connecter", new_user_session_path, class: style) +
+          " ".html_safe +
+          (link_to "S'inscrire", new_user_registration_path, class: style)
       else
-          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style) #+
-          #" ".html_safe +
-         #(link_to "Dashboard", etudiants_path, class: style)
+          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style) +
+          " ".html_safe +
+         (link_to "M'enregistrer", new_etudiant_path, class: style)
         end 
       end
       def copyright_generator
@@ -22,7 +22,7 @@ module ApplicationHelper
         [
           {
             url: new_etudiant_path,
-            title: 'Inscription'
+            title: "M'enregistrer"
           },
         ]
       end
@@ -49,6 +49,6 @@ module ApplicationHelper
       end
     
       def alert_generator msg
-        js add_gritter(msg, title: "AESC...", sticky: false, time: 8000)
+        js add_gritter(msg, title: "AESC...", sticky: false, time: 3000)
       end
 end

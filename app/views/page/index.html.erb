@@ -1,0 +1,17 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 style-index-card">
+  <h1 class"add-more">AESC</h1>
+  <% if current_user.is_a?(GuestUser) %>
+
+    <div class="card card-block">
+      <div class="style-index">
+        <%= link_to "SE CONNECTER", new_user_session_path %>
+      </div>
+    </div>
+    <br>
+    <div class="card card-block">
+      <div class="style-index">
+        <%= link_to "S'INSCRIRE", new_user_session_path %>
+      </div>
+    </div>
+  <% end %>
+</main>
