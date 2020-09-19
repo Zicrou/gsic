@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access all: [:show, :new, :create, :edit, :update,], user: {except: [:destroy]}, site_admin: :all,  responsable_zone: {except: [:destroy]}, president: {except: [:destroy]}
+  access user: {except: [:destroy]}, site_admin: :all,  responsable_zone: {except: [:destroy]}, president: {except: [:destroy]}
 
 
   # GET /etudiants
@@ -12,6 +12,8 @@ class EtudiantsController < ApplicationController
     if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
       render :index
+    elsif logged_in?(:user)
+      @etudiants = Etudiant.where(user_id: current_user.id)
     else
       redirect_to new_etudiant_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end

@@ -1,0 +1,2 @@
+class Niveauformation < ApplicationRecord
+end
