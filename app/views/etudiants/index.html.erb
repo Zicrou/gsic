@@ -60,84 +60,78 @@
             </tr>
           </thead>
           <tbody>
-            <% @etudiants.each do |etudiant| %>
-      <tr>
-        <td><%= etudiant.nom %></td>
-        <td><%= etudiant.prenom %></td>
-        <td><%= etudiant.date_nasissance %></td>
-        
-        <td><%= etudiant.telephone %></td>
-        <td><%= etudiant.passport %></td>
-        <td><%= etudiant.universite_filiere %></td>
-        <td><%= etudiant.filiere %></td>
-        <td><%= etudiant.duree_formation %></td>
-        <td><%= etudiant.annee_de_graduation %></td>
-        <td><%= etudiant.niveau_formation %></td>
-        <td class="btn btn-primary" style="margin: 0.6em;" data-toggle="modal" data-target="#exampleModalLong">
-            Voir Information
-        </td>
-        <td><%= link_to 'Show', etudiant, class:"btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" %></td>
-        <!--td><%#= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
-      </tr>
-
-
-
-      <!-- Modal -->
-      <% @etudiants.each do |etudiant| %>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:#292b2c;color:white;">
-        <h5 class="modal-title" id="exampleModalLongTitle"><%= etudiant.nom + etudiant.prenom  %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <% if !etudiant.photo.nil? %>
-        <p style="width:30%;">Photo: <%= image_tag etudiant.photo.to_s %></p>
-        <% else %>
-          <p>Photo: Pas de photo</p>
+        <% @etudiants.each do |etudiant| %>
+          <tr>
+            <td><%= etudiant.nom %></td>
+            <td><%= etudiant.prenom %></td>
+            <td><%= etudiant.date_nasissance %></td>
+            
+            <td><%= etudiant.telephone %></td>
+            <td><%= etudiant.passport %></td>
+            <td><%= etudiant.universite_filiere %></td>
+            <td><%= etudiant.filiere %></td>
+            <td><%= etudiant.duree_formation %></td>
+            <td><%= etudiant.annee_de_graduation %></td>
+            <td><%= etudiant.niveau_formation %></td>
+            <!--td class="btn btn-primary" style="margin: 0.6em;" data-toggle="modal" data-target="#exampleModalLong">
+                Voir Information
+            </td -->
+            <td><%= link_to 'Show', etudiant, class:"btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" %></td>
+            <!--td><%#= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
+          </tr>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color:#292b2c;color:white;">
+                  <h5 class="modal-title" id="exampleModalLongTitle"><%= etudiant.nom + etudiant.prenom%></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <% if !etudiant.photo.nil? %>
+                    <p style="width:25%;">Photo: <%= image_tag etudiant.photo.to_s %></p>
+                  <% else %>
+                    <p>Photo: Pas de photo</p>
+                  <% end %>
+                
+                  <% if !etudiant.passport_image.nil? %>
+                    <p style="width:25%;">Passeport: <%= image_tag etudiant.passport_image.to_s %> </p>
+                  <% else %>
+                    <p>Passeport: Pas de photo du passeport </p>
+                  <% end %>
+                  
+                  <p>Expiration du passport: <%= etudiant.date_passport_expiration %></p>
+                  <p>Êtes-vous en chine: <%= etudiant.etreenchine %></p>
+                  <p>Carte Consulaire: <%= etudiant.carteconsulaire.name %></p>
+                  <p>Adresse: <%= etudiant.adresse %></p>
+                  <p>Boursier: <%= etudiant.boursier.name %></p>
+                  <p>Type de Bourse: <%= etudiant.typebourse.name if !etudiant.typebourse.nil? %></p>
+                  <p>A fait une annee de langue chinoise: <%= etudiant.faireanneelangue.name %></p>
+                  <p>Province(langue chinoise): <%= etudiant.province.name if !etudiant.province.nil? %></p>
+                  <p>Année de la langue: <%= etudiant.annee_langue_chinoise %></p>
+                  <p>Universite de la langue: <%= etudiant.universite_annee_langue_chinoise %></p>
+                  <p>Année début de Filiére: <%= etudiant.annee_debut_filiere %></p>
+                  <p>Province (Université filiére): <%= etudiant.province_uinversite_filiere %></p>
+                  <p>Université(Filiére): <%= etudiant.universite_filiere %></p>
+                  <p>Formation en : <%= etudiant.langueformation.name %></p>
+                  <p>Durée de la formation: <%= etudiant.duree_formation %></p>
+                  <p>Année de Graduation: <%= etudiant.annee_de_graduation %></p>
+                  <p>Niveau de Formation: <%= etudiant.niveau_formation %></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!--button type="button" class="btn btn-primary">Save changes</button -->
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-      
-        <% if !etudiant.passport_image.nil? %>
-          <p style="width:30%;">Passeport: <%= image_tag etudiant.passport_image.to_s %> </p>
-        <% else %>
-          <p>Passeport: Pas de photo du passeport </p>
-        <%end%>
-        
-        <p>Expiration du passport: <%= etudiant.date_passport_expiration %></p>
-        <p>Êtes-vous en chine: <%= etudiant.etreenchine %></p>
-        <p>Carte Consulaire: <%= etudiant.carteconsulaire.name %></p>
-        <p>Adresse: <%= etudiant.adresse %></p>
-        <p>Boursier: <%= etudiant.boursier.name %></p>
-        <p>Type de Bourse: <%= etudiant.typebourse.name if !etudiant.typebourse.nil? %></p>
-        <p>A fait une annee de langue chinoise: <%= etudiant.faireanneelangue.name %></p>
-        <p>Province(langue chinoise): <%= etudiant.province.name if !etudiant.province.nil? %></p>
-        <p>Année de la langue: <%= etudiant.annee_langue_chinoise %></p>
-        <p>Universite de la langue: <%= etudiant.universite_annee_langue_chinoise %></p>
-        <p>Année début de Filiére: <%= etudiant.annee_debut_filiere %></p>
-        <p>Province (Université filiére): <%= etudiant.province_uinversite_filiere %></p>
-        <p>Université(Filiére): <%= etudiant.universite_filiere %></p>
-        <p>Formation en : <%= etudiant.langueformation.name %></p>
-        <p>Durée de la formation: <%= etudiant.duree_formation %></p>
-        <p>Année de Graduation: <%= etudiant.annee_de_graduation %></p>
-        <p>Niveau de Formation: <%= etudiant.niveau_formation %></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!--button type="button" class="btn btn-primary">Save changes</button -->
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-    <% end %>
-          </tbody>
-        </table>
-      </div>
-
+        </tbody>
+      </table>
 
       <%#= link_to 'New Etudiant', new_etudiant_path %>
 </main>
