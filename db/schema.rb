@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_152811) do
+ActiveRecord::Schema.define(version: 2020_09_22_112608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_152811) do
     t.string "etreenchine"
     t.bigint "user_id"
     t.bigint "niveauformation_id"
+    t.string "email"
     t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"

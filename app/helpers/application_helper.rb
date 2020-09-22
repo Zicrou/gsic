@@ -7,9 +7,7 @@ module ApplicationHelper
           " ".html_safe +
           (link_to "S'inscrire", new_user_registration_path, class: style)
       else
-          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style) +
-          " ".html_safe +
-         (link_to "M'enregistrer", new_etudiant_path, class: style)
+          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style, style:"margin-left:10%;")
         end 
       end
       def copyright_generator
@@ -20,6 +18,14 @@ module ApplicationHelper
 
       def nav_item
         [
+          {
+            url: root_path,
+            title: "Home"
+          },
+          {
+            url: etudiants_path,
+            title: "Dashboard"
+          },
           {
             url: new_etudiant_path,
             title: "M'enregistrer"
@@ -49,6 +55,6 @@ module ApplicationHelper
       end
     
       def alert_generator msg
-        js add_gritter(msg, title: "AESC...", sticky: false, time: 3000)
+        js add_gritter(msg, title: "AESC...", sticky: false, time: 8000)
       end
 end

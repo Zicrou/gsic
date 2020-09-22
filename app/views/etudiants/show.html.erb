@@ -1,30 +1,37 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <p id="notice"><%= notice %></p>
-  <div class="card card-block">
-    <p class="style" style="" >PHOTO</p>
-    <div>
-      <p style="width:;">
-        <strong>Photo:</strong>
-        <%= image_tag @etudiant.photo.to_s %>
-      </p>
+  
+  <div class="row">
+    <div class="col-md-4"  style="margin-right:auto;">
+      <div class="card card-block">
+        <p class="style" >PHOTO</p>
+        <div>
+          <p>
+            <strong>Photo:</strong>
+          </p>
+          
+          <p><%= image_tag @etudiant.photo.to_s, width:'100%' %></p>
+        </div>
+      </div>
     </div>
-  </div>
-  <br/>
-  <div class="card card-block">
-    <p class="style" style="" >PASSEPORT</p>
-    <div style="width:auto;">
-      <p>
-        <strong>Passeport image:</strong>
-      </p>
-      <p><%= image_tag @etudiant.passport_image.to_s %></p>
-      
+
+    <div class="col-md-4">
+      <div class="card card-block">
+      <p class="style" >PASSEPORT</p>
+        <div>
+          <p>
+            <strong>Passeport image:</strong>
+          </p>
+          <p><%= image_tag @etudiant.passport_image.to_s, width:'100%' %></p>
+        </div>
+      </div>
     </div>
   </div>
 
   <hr>
 
   <div class="card card-block">
-    <p class="style" style="" >INFORMATIONS PERSONNELLES</p>
+    <p class="style" >INFORMATIONS PERSONNELLES</p>
     <div>
       <p>
         <strong>Nom:</strong>
@@ -32,12 +39,12 @@
       </p>
 
       <p>
-        <strong>Prenom:</strong>
+        <strong>Prénom:</strong>
         <%= @etudiant.prenom %>
       </p>
 
       <p>
-        <strong>Date nasissance:</strong>
+        <strong>Date de naissance:</strong>
         <%= @etudiant.date_nasissance %>
       </p>
 
@@ -47,17 +54,17 @@
       </p>
 
       <p>
-        <strong>Telephone:</strong>
+        <strong>Téléphone:</strong>
         <%= @etudiant.telephone %>
       </p>
 
       <p>
-        <strong>Passport:</strong>
+        <strong>Passeport:</strong>
         <%= @etudiant.passport %>
       </p>
 
       <p>
-        <strong>Date passport expiration:</strong>
+        <strong>Date passeport expiration:</strong>
         <%= @etudiant.date_passport_expiration %>
       </p>
 
@@ -80,70 +87,71 @@
 
   <hr>
 
-  <div class="card card-block">
-    <p class="style" style="" >INFORMATIONS SUR MA BOURSE</p>
-    <div>
-      <p>
-        <strong>Boursier:</strong>
-        <%= @etudiant.boursier.name %>
-      </p>
+  <div class="row">
+    <div class="card card-block col-md-5" style="margin:1%;margin-right:auto;">
+      <p class="style" >INFORMATIONS SUR MA BOURSE</p>
+      <div>
+        <p>
+          <strong>Boursier:</strong>
+          <%= @etudiant.boursier.name %>
+        </p>
 
-      <p>
-        <strong>Type de bourse:</strong>
-        <%= @etudiant.typebourse.name if !@etudiant.typebourse.nil?%>
-      </p>
+        <p>
+          <strong>Type de bourse:</strong>
+          <%= @etudiant.typebourse.name if !@etudiant.typebourse.nil?%>
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="card card-block col-md-5" style="margin:1%;">
+      <p class="style" >ANNÉE DE LANGUE</p>
+      <div>
+        <p>
+          <strong>Faire Année de langue chinoise:</strong>
+          <%= @etudiant.faireanneelangue.name %>
+        </p>
+
+        <p>
+          <strong>Province:</strong>
+          <%= @etudiant.province.name if !@etudiant.province.nil? %>
+        </p>
+
+        <p>
+          <strong>Année langue chinoise:</strong>
+          <%= @etudiant.annee_langue_chinoise %>
+        </p>
+
+        <p>
+          <strong>Universite année langue chinoise:</strong>
+          <%= @etudiant.universite_annee_langue_chinoise %>
+        </p>
+      </div>
     </div>
   </div>
 
   <hr>
-  
-  <div class="card card-block">
-    <p class="style" style="" >ANNÉE DE LANGUE</p>
-    <div>
-      <p>
-        <strong>Faire Annee de langue chinoise:</strong>
-        <%= @etudiant.faireanneelangue.name %>
-      </p>
-
-      <p>
-        <strong>Province:</strong>
-        <%= @etudiant.province.name if !@etudiant.province.nil? %>
-      </p>
-
-      <p>
-        <strong>Annee langue chinoise:</strong>
-        <%= @etudiant.annee_langue_chinoise %>
-      </p>
-
-      <p>
-        <strong>Universite annee langue chinoise:</strong>
-        <%= @etudiant.universite_annee_langue_chinoise %>
-      </p>
-    </div>
-  </div>
-
-  <hr>
 
   <div class="card card-block">
-    <p class="style" style="" >INFORMATIONS SUR MA FORMATION</p>
+    <p class="style" >INFORMATIONS SUR MA FORMATION</p>
     <div>
       <p>
-        <strong>Annee debut filiere:</strong>
+        <strong>Année debut filière:</strong>
         <%= @etudiant.annee_debut_filiere %>
       </p>
 
       <p>
-        <strong>Province uinversite filiere:</strong>
+        <strong>Province uinversite filière:</strong>
         <%= @etudiant.province_uinversite_filiere %>
       </p>
 
       <p>
-        <strong>Universite filiere:</strong>
+        <strong>Universite filière:</strong>
         <%= @etudiant.universite_filiere %>
       </p>
 
       <p>
-        <strong>Filiere:</strong>
+        <strong>Filière:</strong>
         <%= @etudiant.filiere %>
       </p>
 
@@ -158,7 +166,7 @@
       </p>
 
       <p>
-        <strong>Annee graduate:</strong>
+        <strong>Année de graduation:</strong>
         <%= @etudiant.annee_de_graduation %>
       </p>
 
