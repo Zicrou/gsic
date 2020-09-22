@@ -7,7 +7,9 @@ module ApplicationHelper
           " ".html_safe +
           (link_to "S'inscrire", new_user_registration_path, class: style)
       else
-          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style, style:"margin-left:10%;")
+          (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style, style:"margin-left:10%;") +
+          " ".html_safe +
+          (link_to "M'enregistrer", new_etudiant_path, class: style)
         end 
       end
       def copyright_generator
