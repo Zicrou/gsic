@@ -1,5 +1,11 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-  <p id="notice"><%= notice %></p>
+<% if @etudiant.errors.any? %>
+  <% etudiant.errors.full_messages.each do |error| %>
+    <%= alert_generator error %>
+  <% end %>
+<% end %>
+
+
   
   <div class="row">
     <div class="col-md-4"  style="margin-right:auto;">
