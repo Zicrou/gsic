@@ -3,7 +3,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <% if !current_user.is_a?(GuestUser) %>
-  <% if !logged_in?(:user) %>
+  <% if logged_in?(:user) %>
     <span class="" style="color:white;">||<%= current_user.role.upcase %></span>
   <% end %>
     <span class=""><%=link_to "|Dashboard(AESC)", etudiants_path, class:"navbar-brand"%></span>
