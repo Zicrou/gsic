@@ -1,5 +1,6 @@
 class LangueformationsController < ApplicationController
   before_action :set_langueformation, only: [:show, :edit, :update, :destroy]
+  access [:user, :embassade, :responsable_zone, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
 
   # GET /langueformations
   # GET /langueformations.json

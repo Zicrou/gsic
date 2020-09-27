@@ -1,6 +1,6 @@
 class ProvincesController < ApplicationController
   before_action :set_province, only: [:show, :edit, :update, :destroy]
-
+  access [:user, :embassade, :responsable_zone, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
   # GET /provinces
   # GET /provinces.json
   def index

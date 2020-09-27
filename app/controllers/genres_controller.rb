@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  access [:user, :embassade, :responsable_zone, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
 
   # GET /genres
   # GET /genres.json
