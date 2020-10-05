@@ -1,0 +1,21 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @zone.name %>
+  </p>
+
+  <p>
+    <strong>Codeqr:</strong>
+    <%= @zone.codeqr %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= @zone.user %>
+  </p>
+
+  <%= link_to 'Edit', edit_zone_path(@zone) %> |
+  <%= link_to 'Back', zones_path %>
+</main>

@@ -11,11 +11,12 @@ class EtudiantsController < ApplicationController
   def index
     if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
-      render :index
+      #render :index
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
+      #render :index
     else
-      redirect_to new_etudiant_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
+      redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
   end
 
@@ -39,6 +40,7 @@ class EtudiantsController < ApplicationController
   def create
     @etudiant = Etudiant.new(etudiant_params)
     #byebug
+    @etudiant.user_id = current_user.id
     respond_to do |format|
       if @etudiant.save
         format.html { redirect_to @etudiant, notice: 'Etudiant was successfully created.' }

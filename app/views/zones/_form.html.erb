@@ -1,0 +1,39 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: zone, local: true) do |form| %>
+    <% if zone.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(zone.errors.count, "error") %> prohibited this zone from being saved:</h2>
+
+        <ul>
+        <% zone.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :codeqr %>
+      <%= form.text_field :codeqr, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :user_id %>
+      <%= form.collection_select(:user_id, User.responsable_zone_only(), :id, :name,
+            {
+              include_blank: true
+            },
+            class: "form-control"
+          ) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit, class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</main>

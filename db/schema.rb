@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_112608) do
+ActiveRecord::Schema.define(version: 2020_10_05_102113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,13 @@ ActiveRecord::Schema.define(version: 2020_09_22_112608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profils", force: :cascade do |t|
+    t.string "email"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -165,6 +172,15 @@ ActiveRecord::Schema.define(version: 2020_09_22_112608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.string "name"
+    t.string "codeqr"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_zones_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "etudiants", "boursiers"
   add_foreign_key "etudiants", "carteconsulaires"
@@ -178,4 +194,5 @@ ActiveRecord::Schema.define(version: 2020_09_22_112608) do
   add_foreign_key "etudiants", "users"
   add_foreign_key "universitefilieres", "provinces"
   add_foreign_key "universitelangues", "provinces"
+  add_foreign_key "zones", "users"
 end

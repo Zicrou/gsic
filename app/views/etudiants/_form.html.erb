@@ -9,14 +9,17 @@
       
       <div class="form-group">
         <label class="btn btn-primary">
-          Ma photo <%= form.file_field :photo ,style:"display:none;"%>
+         Photo d'identité<%= form.file_field :photo ,style:"display:none;"%>
         </label>
+        <span>Format JPEG JPG PNG</span>
       </div>
 
       <div class="form-group">
         <label class="btn btn-primary">
           Passeport<%= form.file_field :passport_image ,style:"display:none;"%>
         </label>
+        <span>Format JPEG JPG PNG</span>
+
       </div>
       
       <div class="form-group">

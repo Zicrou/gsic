@@ -12,4 +12,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  
+  has_one :zone
+
+  def responsable_zone_only
+    User.where(roles:"responsable_zone")
+  end
+  
 end
