@@ -69,6 +69,6 @@ class ProvincesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def province_params
-      params.require(:province).permit(:name)
+      params.require(:province).permit(:name, :zone_id)
     end
 end

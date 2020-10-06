@@ -1,4 +1,4 @@
-<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" style="margin-top:10px;">
   <p id="notice"><%= notice %></p>
 
   <h1>Zones</h1>
@@ -6,9 +6,9 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Codeqr</th>
-        <th>User</th>
+        <th>Zone</th>
+        <th>Code Qr</th>
+        <th>Responsable de zone</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,8 +17,8 @@
       <% @zones.each do |zone| %>
         <tr>
           <td><%= zone.name %></td>
-          <td><%= zone.codeqr %></td>
-          <td><%= zone.user %></td>
+          <td><%= image_tag zone.codeqr.to_s, style:"width:50%;" %></td>
+          <td><%= zone.user.etudiant.nom + " " +zone.user.etudiant.prenom%></td>
           <td><%= link_to 'Show', zone %></td>
           <td><%= link_to 'Edit', edit_zone_path(zone) %></td>
           <td><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,5 +29,5 @@
 
   <br>
 
-  <%= link_to 'New Zone', new_zone_path %>
+  <%= link_to 'New Zone', new_zone_path if logged_in?(:site_admin, :president) %>
 </main>

@@ -15,17 +15,17 @@ class ZonesController < ApplicationController
   # GET /zones/new
   def new
     @zone = Zone.new
-    @responsable_zones = User.responsable_zone_only()
+    
   end
 
   # GET /zones/1/edit
   def edit
-    @responsable_zones = User.responsable_zone_only()
+   
   end
 
   # POST /zones
   def create
-    @responsable_zones = User.responsable_zone_only()
+    #@responsable_zones = User.responsable_zone_only()
 
     @zone = Zone.new(zone_params)
 

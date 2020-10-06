@@ -32,6 +32,10 @@ module ApplicationHelper
             url: new_etudiant_path,
             title: "M'enregistrer"
           },
+          {
+            url: zones_path,
+            title: "Zone"
+          },
         ]
       end
 

@@ -15,8 +15,9 @@ class User < ApplicationRecord
 
   
   has_one :zone
+  has_one :etudiant
 
-  def responsable_zone_only
+  def self.responsable_zone_only
     User.where(roles:"responsable_zone")
   end
   

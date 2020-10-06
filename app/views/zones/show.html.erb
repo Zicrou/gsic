@@ -1,19 +1,19 @@
-<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" style="margin-top:3%;">
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>Nom du zone:</strong>
     <%= @zone.name %>
   </p>
 
-  <p>
-    <strong>Codeqr:</strong>
-    <%= @zone.codeqr %>
+  <p style="width:100px;height:auto;">
+    <strong>Code Qr:</strong>
+    <%= image_tag @zone.codeqr.to_s%>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= @zone.user %>
+    <strong>Responsable de Zone:</strong>
+    <%= @zone.user.email %>
   </p>
 
   <%= link_to 'Edit', edit_zone_path(@zone) %> |

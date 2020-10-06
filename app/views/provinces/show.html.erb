@@ -1,9 +1,14 @@
-<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" style="margin-top:3%;">
   <p id="notice"><%= notice %></p>
 
   <p>
     <strong>Name:</strong>
     <%= @province.name %>
+  </p>
+
+  <p>
+    <strong>Zone:</strong>
+    <%= @province.zone.name %>
   </p>
 
   <%= link_to 'Edit', edit_province_path(@province) %> |

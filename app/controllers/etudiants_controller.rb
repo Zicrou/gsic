@@ -9,12 +9,16 @@ class EtudiantsController < ApplicationController
   # GET /etudiants
   # GET /etudiants.json
   def index
+    #@etudiant_zone
+    
     if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
-      #render :index
+      #@etudiant_zone = Province.where(name: :province_uinversite_filiere)
+      #pry
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
-      #render :index
+      #@etudiant_zone = Province.where(name: :province_uinversite_filiere)
+
     else
       redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
@@ -23,24 +27,28 @@ class EtudiantsController < ApplicationController
   # GET /etudiants/1
   # GET /etudiants/1.json
   def show
+    @dat = @etudiant.province_uinversite_filiere
+    @data = Province.find_by name: @dat
+    @data_zone = @data.zone.name
   end
 
   # GET /etudiants/new
   def new
+    @etudiant = Etudiant.find(params[:id])
     @etudiant = Etudiant.new
   end
 
   # GET /etudiants/1/edit
   def edit
-    #byebug
   end
 
   # POST /etudiants
   # POST /etudiants.json
   def create
     @etudiant = Etudiant.new(etudiant_params)
-    #byebug
+    
     @etudiant.user_id = current_user.id
+    
     respond_to do |format|
       if @etudiant.save
         format.html { redirect_to @etudiant, notice: 'Etudiant was successfully created.' }
@@ -55,6 +63,8 @@ class EtudiantsController < ApplicationController
   # PATCH/PUT /etudiants/1
   # PATCH/PUT /etudiants/1.json
   def update
+    @etudiant.user_id = current_user.id
+    
     respond_to do |format|
       if @etudiant.update(etudiant_params)
         format.html { redirect_to @etudiant, notice: 'Etudiant was successfully updated.' }

@@ -1,7 +1,7 @@
 class Province < ApplicationRecord
     has_many :etudiants
-    #belongs_to :zone
+    belongs_to :zone
 
-  validates_presence_of :name #zone_id
+  validates_presence_of :name, :zone_id
 
 end
