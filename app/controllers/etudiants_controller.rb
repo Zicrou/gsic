@@ -17,8 +17,10 @@ class EtudiantsController < ApplicationController
       #pry
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
-      #@etudiant_zone = Province.where(name: :province_uinversite_filiere)
-
+      @dat = @etudiants.first.province_uinversite_filiere
+      @data = Province.find_by name: @dat
+      @data_zone = @data.zone
+      @etudiant_zone = @data_zone
     else
       redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
@@ -29,7 +31,7 @@ class EtudiantsController < ApplicationController
   def show
     @dat = @etudiant.province_uinversite_filiere
     @data = Province.find_by name: @dat
-    @data_zone = @data.zone.name
+    @data_zone = @data.zone
   end
 
   # GET /etudiants/new

@@ -115,6 +115,9 @@
         <% end %>
         </tbody>
       </table>
-
+      <div class="col-md-4" style="margin-left:30%;">
+        <p> <strong> Code Qr de ma zone: </strong> </p>
+        <p><%= image_tag @etudiant_zone.codeqr.to_s, style:"width:100%;"  %></p>
+      </div>
       <%#= link_to 'New Etudiant', new_etudiant_path %>
 </main>
