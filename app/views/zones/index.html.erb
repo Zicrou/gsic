@@ -18,7 +18,7 @@
         <tr>
           <td><%= zone.name %></td>
           <td><%= image_tag zone.codeqr.to_s, style:"width:50%;" %></td>
-          <td><%= zone.user.etudiant.nom + " " +zone.user.etudiant.prenom%></td>
+          <td><%= zone.user.email %></td>
           <td><%= link_to 'Show', zone %></td>
           <td><%= link_to 'Edit', edit_zone_path(zone) %></td>
           <td><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
