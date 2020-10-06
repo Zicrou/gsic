@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_one :etudiant
 
   def self.responsable_zone_only
-    User.where(roles:"responsable_zone")
+    User.where(roles:"responsable_zone").or(User.where(roles:"site_admin"))
   end
   
 end
