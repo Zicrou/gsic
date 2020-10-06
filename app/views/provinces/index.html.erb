@@ -18,7 +18,7 @@
         <tr>
           <td><%= province.name %></td>
           <td>==></td>
-          <td><%= province.zone.name %></td>
+          <td><%= province.zone.name  if !province.zone.nil?%></td>
           <td><%= link_to 'Show', province %></td>
           <td><%= link_to 'Edit', edit_province_path(province) %></td>
           <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
