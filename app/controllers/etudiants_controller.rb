@@ -36,7 +36,6 @@ class EtudiantsController < ApplicationController
 
   # GET /etudiants/new
   def new
-    @etudiant = Etudiant.find(params[:id])
     @etudiant = Etudiant.new
   end
 
