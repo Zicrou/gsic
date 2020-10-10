@@ -9,18 +9,20 @@ class EtudiantsController < ApplicationController
   # GET /etudiants
   # GET /etudiants.json
   def index
-    #@etudiant_zone
     
     if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
-      #@etudiant_zone = Province.where(name: :province_uinversite_filiere)
-      #pry
+
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
-      @dat = @etudiants.first.province_uinversite_filiere
-      @data = Province.find_by name: @dat
-      @data_zone = @data.zone
-      @etudiant_zone = @data_zone
+      if !@etudiants.empty?
+
+        @dat = @etudiants.first.province_uinversite_filiere
+        @data = Province.find_by name: @dat
+        @data_zone = @data.zone
+        @etudiant_zone = @data_zone
+  
+      end
     else
       redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
