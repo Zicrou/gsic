@@ -4,7 +4,7 @@ class Etudiant < ApplicationRecord
     belongs_to :boursier
     belongs_to :typebourse, optional: true
     belongs_to :faireanneelangue
-    belongs_to :province
+    belongs_to :province, optional: true
     belongs_to :langueformation
     belongs_to :user
     has_one :zone
