@@ -1,7 +1,7 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
 <br/>
 <br/>
-      <h1>Liste des etudiants</h1>
+      <h1>Liste des etudiants(<%= @total_etudiant%>)</h1> 
       <!--section class="row text-center placeholders">
         <div class="col-6 col-sm-3 placeholder">
           <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
@@ -59,7 +59,7 @@
             </td>
             <td><%= link_to 'Show', etudiant, class:"btn btn-primary" %></td>
             <td><%#= link_to 'Voir',"#" ,data: {toggle: "modal", target: "##{etudiant.id}"}%></td>
-            <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" if current_user.id === etudiant.id %></td>
             <td><%= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president, :responsable_zone) %></td>
             
           </tr>
