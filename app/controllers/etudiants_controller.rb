@@ -10,7 +10,7 @@ class EtudiantsController < ApplicationController
   # GET /etudiants.json
   def index
     @total_etudiant = Etudiant.count
-    if logged_in?(:site_admin, :responsable_zone, :president)
+    if logged_in?(:site_admin, :responsable_zone, :president, :embassade)
       @etudiants = Etudiant.all
 
     elsif logged_in?(:user)
