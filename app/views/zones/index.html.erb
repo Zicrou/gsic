@@ -17,7 +17,7 @@
       <% @zones.each do |zone| %>
         <tr>
           <td><%= zone.name %></td>
-          <td><%= image_tag zone.codeqr.to_s, style:"width:30%;height:10%;" %></td>
+          <td><%= image_tag zone.codeqr.to_s, style:"width:30%;height:90%;" %></td>
           <td><%= zone.user.email %></td>
           <td><%= link_to 'Show', zone %></td>
           <td><%= link_to 'Edit', edit_zone_path(zone) %></td>

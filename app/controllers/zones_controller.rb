@@ -1,7 +1,7 @@
 class ZonesController < ApplicationController
   before_action :set_zone, only: [:show, :edit, :update, :destroy]
   #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access [:user] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all, [:responsable_zone]=> [:index, :show, :new, :create, :edit, :update, { except: [ :destroy]}], [:embassade, :president] => [:index, :show, {except: [:destroy, :new, :create, :edit, :update]}]
+  access [:user] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all, [:responsable_zone, :president]=> [:index, :show, :new, :create, :edit, :update, { except: [ :destroy]}], [:embassade] => [:index, :show, {except: [:destroy, :new, :create, :edit, :update]}]
 
   # GET /zones
   def index
