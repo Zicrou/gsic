@@ -6,6 +6,6 @@ wb.add_worksheet(name: "Etudiants") do |sheet|
   
   # each etudiant is a row on your spreadsheet
   @etudiants.each do |etudiant|
-    sheet.add_row [etudiant.id, etudiant.email, etudiant.nom, etudiant.prenom, etudiant.passport, etudiant.province_id, etudiant.user.id, etudiant.user.email, etudiant.province_uinversite_filiere]
+    sheet.add_row [etudiant.id, etudiant.email, etudiant.nom, etudiant.prenom, etudiant.passport, etudiant.province_id, etudiant.province_uinversite_filiere] 
   end
 end
