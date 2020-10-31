@@ -12,6 +12,10 @@ class EtudiantsController < ApplicationController
     @total_etudiant = Etudiant.count
     if logged_in?(:site_admin, :responsable_zone, :president, :embassade)
       @etudiants = Etudiant.all
+      respond_to do |format|
+        format.html
+        format.xlsx
+      end
 
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
