@@ -2,7 +2,7 @@ wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Etudiants") do |sheet|
    # this is the head row of your spreadsheet
-  sheet.add_row %w(id email nom prenom passeport provinceid userId userEmail province_uinversite_filiere)
+  sheet.add_row %w(id email nom prenom passeport provinceid province_uinversite_filiere)
   
   # each etudiant is a row on your spreadsheet
   @etudiants.each do |etudiant|
