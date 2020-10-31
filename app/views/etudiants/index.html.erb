@@ -3,6 +3,7 @@
 <br/>
       <h1>Liste des etudiants<%= "(#{@total_etudiant})" if logged_in?(:site_admin, :responsable_zone, :president, :embassade)%></h1> 
   <%#= current_user.role %>
+  <%= link_to "Extract Etudiant as spreadsheet", etudiants_path(format: "xlsx") %>
 
       <!--section class="row text-center placeholders">
         <div class="col-6 col-sm-3 placeholder">

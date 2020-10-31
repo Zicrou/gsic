@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Etudiants") do |sheet|
+   # this is the head row of your spreadsheet
+  sheet.add_row %w(id email nom prenom passeport provinceid userId userEmail province_uinversite_filiere)
+  
+  # each etudiant is a row on your spreadsheet
+  @etudiants.each do |etudiant|
+    sheet.add_row [etudiant.id, etudiant.email, etudiant.nom, etudiant.prenom, etudiant.passport, etudiant.province_id, etudiant.user.id, etudiant.user.email etudiant.province_uinversite_filiere]
+  end
+end
