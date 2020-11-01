@@ -5,6 +5,10 @@ class ProvincesController < ApplicationController
   # GET /provinces.json
   def index
     @provinces = Province.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /provinces/1

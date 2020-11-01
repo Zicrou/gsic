@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Provinces") do |sheet|
+   # this is the head row of your spreadsheet
+  sheet.add_row %w(id name)
+  
+  # each province is a row on your spreadsheet
+  @provinces.each do |province|
+    sheet.add_row [province.id, province.name]
+  end
+end
