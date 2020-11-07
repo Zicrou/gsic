@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_182218) do
+ActiveRecord::Schema.define(version: 2020_11_07_112734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_182218) do
     t.date "annee_langue_chinoise"
     t.string "universite_annee_langue_chinoise"
     t.date "annee_debut_filiere"
-    t.string "province_uinversite_filiere"
     t.string "universite_filiere"
     t.string "filiere"
     t.integer "duree_formation"
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_182218) do
     t.bigint "user_id"
     t.bigint "niveauformation_id"
     t.string "email"
+    t.bigint "province_langue"
     t.index ["boursier_id"], name: "index_etudiants_on_boursier_id"
     t.index ["carteconsulaire_id"], name: "index_etudiants_on_carteconsulaire_id"
     t.index ["faireanneelangue_id"], name: "index_etudiants_on_faireanneelangue_id"
@@ -190,7 +190,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_182218) do
   add_foreign_key "etudiants", "genres"
   add_foreign_key "etudiants", "langueformations"
   add_foreign_key "etudiants", "niveauformations"
-  add_foreign_key "etudiants", "provinces"
   add_foreign_key "etudiants", "typebourses"
   add_foreign_key "etudiants", "universitefilieres"
   add_foreign_key "etudiants", "users"
