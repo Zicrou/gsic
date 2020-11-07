@@ -134,8 +134,8 @@
         </div>
         <span class="form-control col-md-1" style="color:red;"><strong>SI OUI</strong></span>
         <div class="form-group">
-          <%= form.label :Province %>
-          <%= form.collection_select(:province_id, Province.order(:name), :id, :name,
+          <%= form.label "Province de l'année de langue" %>
+          <%= form.collection_select(:province_langue, Province.order(:name), :id, :name,
               {
                 include_blank: true
               },
@@ -165,7 +165,7 @@
 
     <div class="form-group">
       <%= form.label "Province d'étude" %>
-      <%= form.collection_select(:province_uinversite_filiere, Province.order(:name), :name, :name,
+      <%= form.collection_select(:province_id, Province.order(:name), :id, :name,
           {
             include_blank: true
           },

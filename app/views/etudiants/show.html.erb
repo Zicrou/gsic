@@ -124,8 +124,8 @@
         </p>
 
         <p>
-          <strong>Province:</strong>
-          <%= @etudiant.province.name if !@etudiant.province.nil? %>
+          <strong>Province de l'année de langue:</strong>
+          <%= @province_langue.name if !@province_langue.nil?%>
         </p>
 
         <p>
@@ -153,11 +153,11 @@
 
       <p>
         <strong>Province uinversite de formation:</strong>
-        <%= @etudiant.province_uinversite_filiere %>
+        <%= @etudiant.province.name %>
       </p>
       <p>
         <strong>Ma Zone:</strong>
-        <%= @data_zone.name if !@data_zone.nil?%>
+        <%= @etudiant.province.zone.name%>
       </p>
 
       <p>
