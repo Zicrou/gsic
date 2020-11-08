@@ -100,13 +100,13 @@ class EtudiantsController < ApplicationController
 
   # Customs methods
   def mazone
-    @here = "here"
-    #@etudiants = Etudiant.all
+    
     #@etudiants.each do |etudiant|
     #  etudzone
     #end
     @responsablezone = current_user.zone
     @etudiants = Etudiant.where(zone: @responsablezone.id)
+    @total_etudiant = Etudiant.where(zone: @responsablezone.id).count
     
   end
 
