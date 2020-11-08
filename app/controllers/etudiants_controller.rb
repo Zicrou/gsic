@@ -12,21 +12,20 @@ class EtudiantsController < ApplicationController
     @total_etudiant = Etudiant.count
     if logged_in?(:site_admin, :responsable_zone, :president, :embassade)
       @etudiants = Etudiant.all
-      #respond_to do |format|
-      #  format.html
-      #  format.xlsx
-      #end
+      @etudiant_zone = current_user.etudiant.province.zone
+      
 
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
-      if !@etudiants.empty?
+      @etudiant_zone = @etudiants.first.province.zone
 
-        @dat = @etudiants.first.province_uinversite_filiere
-        @data = Province.find_by name: @dat
-        @data_zone = @data.zone
-        @etudiant_zone = @data_zone
-  
-      end
+      #if !@etudiants.empty?
+#
+      #  @dat = @etudiants.first.province_uinversite_filiere
+      #  @data = Province.find_by name: @dat
+      #  @data_zone = @data.zone
+  #
+      #end
     else
       redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
@@ -97,6 +96,18 @@ class EtudiantsController < ApplicationController
     else
       redirect_to etudiants_path, notice:"Vous n'êtes pas autorisé à acceder à cette page"
     end
+  end
+
+  # Customs methods
+  def mazone
+    @here = "here"
+    #@etudiants = Etudiant.all
+    #@etudiants.each do |etudiant|
+    #  etudzone
+    #end
+    @responsablezone = current_user.zone
+    @etudiants = Etudiant.where(zone: @responsablezone.id)
+    
   end
 
   private

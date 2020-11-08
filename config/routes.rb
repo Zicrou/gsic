@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :boursiers
   resources :carteconsulaires
   resources :genres
-  resources :etudiants
+  resources :etudiants do
+    collection do
+      get :mazone
+    end
+  end
   root to: 'page#index'
   #devise_scope :user do
   #  root to: "devise/sessions#new"
