@@ -9,7 +9,10 @@ module ApplicationHelper
       else
           (link_to "Déconnexion", destroy_user_session_path,method: :delete, class: style, style:"margin-left:10%;") +
           " ".html_safe +
-          (link_to "M'enregistrer", new_etudiant_path, class: style)
+          (link_to "M'enregistrer", new_etudiant_path, class: style) +
+          " ".html_safe +
+          (link_to "Ma Zone", root_path() + "etudiants/mazone", class: style)
+        
         end 
       end
       def copyright_generator
@@ -32,9 +35,14 @@ module ApplicationHelper
             url: new_etudiant_path,
             title: "M'enregistrer"
           },
+          {
+            url: root_path() + "etudiants/mazone",
+            title: "Ma Zone"
+          },
+          
         ]
       end
-
+      
       def nav_helper style, tag_type
         nav_links = ''
 

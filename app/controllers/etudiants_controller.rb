@@ -10,6 +10,9 @@ class EtudiantsController < ApplicationController
   # GET /etudiants.json
   def index
     @total_etudiant = Etudiant.count
+    #@entreenchine = Etudiant.where(etreenchine: "non").count
+    #@entreenchine.count()
+    #@entreenchine
     if logged_in?(:site_admin, :responsable_zone, :president, :embassade)
       @etudiants = Etudiant.all
       @etudiant_zone = current_user.etudiant.province.zone
