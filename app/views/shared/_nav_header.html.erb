@@ -16,11 +16,46 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <span class="style-color"><%= login_helper "nav-link span"%></span>
+        <span class="style-color"><%#= login_helper "nav-link"%></span>
       </li>
-      <li class="nav-item">
-        <%= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
-      </li>
+    <% if current_user.is_a?(GuestUser) %>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Se Connecter", new_user_session_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "S'inscrire", new_user_registration_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+    <% elsif current_user.role == :user %>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Déconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "M'enregistrer", new_etudiant_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+    <% elsif current_user.role == :site_admin or current_user.role == :president or current_user.role == :responsable_zone %>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Déconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "M'enregistrer", new_etudiant_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Ma Zone", root_path() + "etudiants/mazone", class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Configurer ma zone", zones_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+    <% end %>
+      
+
       <!--li class="nav-item">
         <a class="nav-link" href="#">Profile</a>
       </li>
