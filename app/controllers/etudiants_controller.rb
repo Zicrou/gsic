@@ -113,6 +113,11 @@ class EtudiantsController < ApplicationController
     
   end
 
+  def carte_membre
+    #@data = Province.find_by name: @dat
+    #pry @etudiant = params[:etudiant]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_etudiant

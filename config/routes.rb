@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     collection do
       get :mazone
     end
+    collection do
+      get :carte_membre
+    end
   end
   root to: 'page#index'
   #devise_scope :user do
