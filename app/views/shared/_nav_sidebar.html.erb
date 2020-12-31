@@ -1,20 +1,28 @@
 <div class="container-fluid">
   <div class="row">
+  <% if !current_user.is_a?(GuestUser) %>
     <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
       <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <%= nav_helper 'nav-link', 'span' if !current_user.is_a?(GuestUser) %>
-        </li>
-
-        <li class="nav-item">
+        <% if current_user.role == :user %>
+          <li class="nav-item">
+            <%= user_nav_helper 'nav-link', 'span' %>
+          </li>
+        <% elsif current_user.role == :site_admin or current_user.role ==  :president or current_user.role ==  :responsable_zone %>
+          <li class="nav-item">
+            <%= bureau_nav_helper 'nav-link', 'span'%>
+          </li>
+        <% end %>
+  <% end %>
+        
+        <!--li class="nav-item">
           <%#= link_to "Ma zone", root_path() + "etudiants/mazone", class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+          <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
         </li>
 
-        <!--li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="#">Reports</a>
         </li>
         <li class="nav-item">

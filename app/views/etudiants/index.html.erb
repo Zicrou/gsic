@@ -61,6 +61,7 @@
                 Voir Information
             </td -->
             <td><%= link_to 'Show', etudiant, class:"btn btn-primary" %></td>
+            <td><%= link_to 'Carte_membre', carte_membre_etudiants_path, etudiant: etudiant, class:"btn btn-primary" %></td>
             <td><%#= link_to 'Voir',"#" ,data: {toggle: "modal", target: "##{etudiant.id}"}%></td>
             <td><%= link_to 'Edit', edit_etudiant_path(etudiant), class:"btn btn-primary" if current_user.id === etudiant.id %></td>
             <td><%= link_to 'Destroy', etudiant, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president, :responsable_zone) %></td>
@@ -115,6 +116,7 @@
               </div>
             </div -->
           
+      
         <% end %>
         </tbody>
       </table>
@@ -123,4 +125,9 @@
         <p><%= image_tag @etudiant_zone.codeqr.to_s, style:"width:100%;" if !@etudiant_zone.nil?%></p>
       </div>
       <%#= link_to 'New Etudiant', new_etudiant_path %>
+
+<%#= image_tag src="AZ.png" %>
+
+    <%#= render 'carte_membre' %>
+
 </main>
