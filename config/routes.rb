@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :niveauformations
   get 'page/index'
   resources :yes_nos
-  devise_for :users, path: '', path_names: {sign_in: 'Login', sign_out: 'Logout', sign_up: 'Register'}
+  devise_for :users, path: '', path_names: {sign_in: 'Login', sign_out: 'Logout', sign_up: 'Register', password: 'password'}, controllers: { passwords: 'users/passwords'}
   resources :langueformations
   resources :provinces
   resources :faireanneelangues
