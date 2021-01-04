@@ -15,7 +15,7 @@ class Users::PasswordsController < Devise::PasswordsController
     @user.reset_password_token = hashed
     @user.reset_password_sent_at = Time.now.utc
     if @user.save
-      puts "It's Successfully Saved"
+      puts "ALHAMDOULILLAH"
       #@link1 = "http://localhost:3000/password/edit?reset_password_token=" + raw
       #@link2 = "http://localhost:3000/password/edit?reset_password_token=#{raw}"
       #puts @link1
