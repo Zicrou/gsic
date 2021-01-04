@@ -16,9 +16,9 @@ class Users::PasswordsController < Devise::PasswordsController
     @user.reset_password_sent_at = Time.now.utc
     if @user.save
       puts "It's Successfully Saved"
-      @link1 = "http://localhost:3000/password/edit?reset_password_token=" + raw
+      #@link1 = "http://localhost:3000/password/edit?reset_password_token=" + raw
       #@link2 = "http://localhost:3000/password/edit?reset_password_token=#{raw}"
-      puts @link1
+      #puts @link1
       #puts @link2
       redirect_to "http://localhost:3000/password/edit?reset_password_token=" + raw, notice:"Définissez votre nouveau ot de passe"
       #respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
