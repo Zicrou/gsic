@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access [:user, :embassade, :responsable_zone, :president] => [:index, :show, :new, :create, :edit, :update, {except: [:destroy]}], site_admin: :all
+  access [:user, :embassade, :responsable_zone, :president] => [:index, :show, :new, :create, :edit, :update, :carte_membre,{except: [:destroy]}], site_admin: :all
 
 
   # GET /etudiants
@@ -115,7 +115,8 @@ class EtudiantsController < ApplicationController
 
   def carte_membre
     #@data = Province.find_by name: @dat
-    #pry @etudiant = params[:etudiant]
+    #@etudiant = Etudiant.find(params[:etudiant])
+    #pry
   end
 
   private
