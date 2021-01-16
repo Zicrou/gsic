@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access [:user, :embassade, :responsable_zone, :president] => [:index, :show, :new, :create, :edit, :update, :carte_membre,{except: [:destroy]}], site_admin: :all
+  access [:user, :embassade, :responsable_zone, :president] => [:index, :show, :new, :create, :edit, :update, :carte_membre,{except: [:destroy, :generate_memeber_card]}], site_admin: :all
 
 
   # GET /etudiants
@@ -58,6 +58,36 @@ class EtudiantsController < ApplicationController
 
   # GET /etudiants/1/edit
   def edit
+  end
+
+  def generate_memeber_card
+    puts "GreiY!"
+    @etudiants = Etudiant.all
+    @etudiants.each do |etudiant|
+      @anne_graduate = etudiant.annee_de_graduation.strftime("%Y")
+      puts @anne_graduate
+      #@id_number = etudiant.id
+      #puts @id_number
+      if etudiant.id > 0 and etudiant.id < 10 
+        puts "#{etudiant.id}  Est inferieur a 2 chiffres donc"
+        @id_number = "00#{etudiant.id}"
+        puts "Now etudiant_id is =  #{@id_number}"
+      end
+      if etudiant.id > 10 and etudiant.id < 100 
+        puts "#{etudiant.id}  Est inferieur a 3 chiffres donc"
+        @id_number = "0#{etudiant.id}"
+        puts "Now etudiant_id is =  #{@id_number}"
+      end
+      #if @id_number > 100 and @id_number < 1000
+      #  puts "#{etudiant.id}  Est inferieur a 4 chiffres donc"
+      #  @id_number = "#{@id_number}"
+      #  puts "Now id_number =  #{@id_number}"
+      #end
+
+    end 
+    redirect_to etudiants_path()
+    #pry
+    
   end
 
   # POST /etudiants

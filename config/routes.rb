@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     collection do
       get :carte_membre
     end
+    collection do
+      get :generate_memeber_card
+    end
   end
   root to: 'page#index'
   #devise_scope :user do
