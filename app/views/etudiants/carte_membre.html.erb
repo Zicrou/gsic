@@ -66,7 +66,7 @@
 
 </style>
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-<%= @etudiant%>
+<%#= @etudiant%>
 <div id="g-cni-box" class="ai2html">
 
 	<!-- Artboard: Artboard_1 -->
@@ -77,10 +77,10 @@
 			<p class="g-pstyle0"><%= image_tag "AZ.png", id:"g-cni-Artboard_1-img", class:"g-aiImg" %></p>
 		</div>
 		<div id="g-ai0-2" class="g-_8 g-aiAbs g-aiPointText" style="top:41.8729%;margin-top:-7.1px;left:13.6781%;width:87px;">
-			<p class="g-pstyle1"><%= @etudiant.name%></p>
+			<p class="g-pstyle1"><%= @etudiant.nom + " " + @etudiant.prenom%></p>
 		</div>
 		<div id="g-ai0-3" class="g-_8 g-aiAbs g-aiPointText" style="top:61.4717%;margin-top:-7.1px;left:13.2682%;width:48px;">
-			<p class="g-pstyle1">ZONE 1</p>
+			<p class="g-pstyle1"><%= @etudiant.province.zone.name + " (" + "#{@etudiant.province.name})"%></p>
 		</div>
 		<div id="g-ai0-4" class="g-_8 g-aiAbs g-aiPointText" style="top:78.4573%;margin-top:-7.1px;left:22.3499%;width:74px;">
 			<p class="g-pstyle2">2117AAAA</p>

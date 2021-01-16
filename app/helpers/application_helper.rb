@@ -94,10 +94,6 @@ end
         url: new_etudiant_path,
         title: "M'enregistrer"
       },
-      {
-        url: root_path() + "etudiants/mazone",
-        title: "Ma Zone"
-      },
       
     ]
   end

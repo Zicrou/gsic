@@ -20,7 +20,14 @@ class EtudiantsController < ApplicationController
 
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
-      @etudiant_zone = @etudiants.first.province.zone
+      if !current_user.etudiant.nil?
+        @etdt = @etudiants.first
+        #etdt = @etudiant
+        #pry
+      end
+
+      #@etudiants = Etudiant.where(user_id: current_user.id)
+      #@etudiant_zone = @etudiants.first.province.zone
 
       #if !@etudiants.empty?
 #
@@ -114,6 +121,8 @@ class EtudiantsController < ApplicationController
   end
 
   def carte_membre
+    @id_etudiant = params["format"]
+    @etudiant = Etudiant.find(@id_etudiant)
     #@data = Province.find_by name: @dat
     #@etudiant = Etudiant.find(params[:etudiant])
     #pry
