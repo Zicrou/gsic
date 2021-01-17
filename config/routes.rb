@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get :carte_membre
     end
     collection do
-      get :generate_memeber_card
+      get :generate_matricule_member_card
     end
   end
   root to: 'page#index'

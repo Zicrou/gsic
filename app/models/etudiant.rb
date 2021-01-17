@@ -22,4 +22,8 @@ class Etudiant < ApplicationRecord
     def self.by_zone()
         Etudiant.where()
     end
+
+    def self.generate_matricule_member_card(id, matricule)
+        Etudiant.where(id: id).update(matricule: matricule)
+    end
 end
