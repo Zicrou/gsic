@@ -49,7 +49,7 @@
           <tbody>
         <% @etudiants.each do |etudiant| %>
           <tr>
-            <td><%= etudiant.nom %></td>
+            <td><%= etudiant.province.zone.id %></td>
             <td><%= etudiant.prenom %></td>
             <td><%= etudiant.date_nasissance %></td>
             <td><%= etudiant.email %></td>
