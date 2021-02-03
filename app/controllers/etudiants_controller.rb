@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access [:user, :embassade, :responsable_zone, :president] => [:index, :show, :new, :create, :edit, :update, :carte_membre,{except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
+  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone, :president] => [:index, :show,{except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
 
 
   # GET /etudiants
@@ -13,10 +13,13 @@ class EtudiantsController < ApplicationController
     #@entreenchine = Etudiant.where(etreenchine: "non").count
     #@entreenchine.count()
     #@entreenchine
-    if logged_in?(:site_admin, :responsable_zone, :president, :embassade)
+    if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
       @etudiant_zone = current_user.etudiant.province.zone
       
+
+    elsif logged_in?(:embassade)
+      @etudiants = Etudiant.all
 
     elsif logged_in?(:user)
       @etudiants = Etudiant.where(user_id: current_user.id)
@@ -66,7 +69,6 @@ class EtudiantsController < ApplicationController
     @etudiants.each do |etudiant|
       @anne_graduate = etudiant.annee_de_graduation.strftime("%Y")
       #puts @anne_graduate
-      @zone_etudiant = etudiant.province.zone.id
       #puts "Zone id = #{@zone_etudiant}"
       #pry
       if etudiant.id > 0 and etudiant.id < 10 
@@ -84,7 +86,8 @@ class EtudiantsController < ApplicationController
         @id_number = "#{etudiant.id}"
         #puts "Now id_number =  #{@id_number}"
       end
-      @matricule = "#{@anne_graduate}#{@id_number}#{@zone_etudiant}"
+      @zone_etudiant = etudiant.province.zone.id
+      @matricule = "#{@anne_graduate}#{@id_number}#{etudiant.province.zone.id}"
       @idEtudiant = etudiant.id
       if Etudiant.generate_matricule_member_card(@idEtudiant,@matricule)
         puts "ALHAMDOULILLAH"
