@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone, :president] => [:index, :show,{except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
+  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone, :president] => [:index, :show, :carte_membre, {except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
 
 
   # GET /etudiants
@@ -161,6 +161,7 @@ class EtudiantsController < ApplicationController
 
   def carte_membre
     @id_etudiant = params["format"]
+    pry
     @etudiant = Etudiant.find(@id_etudiant)
     #@data = Province.find_by name: @dat
     #@etudiant = Etudiant.find(params[:etudiant])
