@@ -3,7 +3,7 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone, :president] => [:index, :show, :carte_membre, :mazone, {except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
+  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone, :president] => [:index, :show, :carte_membre, :mazone, :edit, :update, :new, :create, {except: [:destroy, :generate_matricule_member_card]}], site_admin: :all
 
 
   # GET /etudiants
@@ -90,7 +90,7 @@ class EtudiantsController < ApplicationController
       @matricule = "#{@anne_graduate}#{@id_number}#{etudiant.province.zone.id}"
       @idEtudiant = etudiant.id
       if Etudiant.generate_matricule_member_card(@idEtudiant,@matricule)
-        puts "ALHAMDOULILLAH"
+        puts "ALHAMDOULILHUWA"
         puts "GreiY"
       end
     end 

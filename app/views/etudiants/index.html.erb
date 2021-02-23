@@ -1,6 +1,7 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
 <br/>
 <br/>
+      <p><%= link_to "Generate Carte", generate_matricule_member_card_etudiants_path(), class:"btn btn-primary" if logged_in?(:site_admin, :president) %></p>
       <h1>Liste des etudiants<%= "(#{@total_etudiant})" if logged_in?(:site_admin, :responsable_zone, :president, :embassade)%></h1> 
       <!-- h1>Nombre des etudiants hors chine<%#= "(#{@entreenchine})" if logged_in?(:site_admin, :responsable_zone, :president, :embassade)%></h1 --> 
   <%#= current_user.role %>
