@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: aesc_development
+  database: gsic_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: aesc_test
+  database: gsic_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: aesc_production
-  username: aesc
-  password: <%= ENV['AESC_DATABASE_PASSWORD'] %>
+  database: gsic_production
+  username: gsic
+  password: <%= ENV['GSIC_DATABASE_PASSWORD'] %>

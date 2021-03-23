@@ -15,27 +15,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
   create_table "boursiers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -58,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.date "annee_langue_chinoise"
     t.string "universite_annee_langue_chinoise"
     t.date "annee_debut_filiere"
+    t.string "province_uinversite_filiere"
     t.string "universite_filiere"
     t.string "filiere"
     t.integer "duree_formation"
@@ -73,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.bigint "faireanneelangue_id"
     t.bigint "province_id"
     t.bigint "langueformation_id"
-    t.bigint "universitefiliere_id"
     t.string "telephone"
     t.string "photo"
     t.string "passport_image"
@@ -92,7 +71,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.index ["niveauformation_id"], name: "index_etudiants_on_niveauformation_id"
     t.index ["province_id"], name: "index_etudiants_on_province_id"
     t.index ["typebourse_id"], name: "index_etudiants_on_typebourse_id"
-    t.index ["universitefiliere_id"], name: "index_etudiants_on_universitefiliere_id"
     t.index ["user_id"], name: "index_etudiants_on_user_id"
   end
 
@@ -120,13 +98,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "profils", force: :cascade do |t|
-    t.string "email"
-    t.string "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -139,22 +110,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "universitefilieres", force: :cascade do |t|
-    t.string "name"
-    t.bigint "province_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["province_id"], name: "index_universitefilieres_on_province_id"
-  end
-
-  create_table "universitelangues", force: :cascade do |t|
-    t.string "name"
-    t.bigint "province_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["province_id"], name: "index_universitelangues_on_province_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -185,18 +140,15 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.index ["user_id"], name: "index_zones_on_user_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "etudiants", "boursiers"
   add_foreign_key "etudiants", "carteconsulaires"
   add_foreign_key "etudiants", "faireanneelangues"
   add_foreign_key "etudiants", "genres"
   add_foreign_key "etudiants", "langueformations"
   add_foreign_key "etudiants", "niveauformations"
+  add_foreign_key "etudiants", "provinces"
   add_foreign_key "etudiants", "typebourses"
-  add_foreign_key "etudiants", "universitefilieres"
   add_foreign_key "etudiants", "users"
   add_foreign_key "provinces", "zones"
-  add_foreign_key "universitefilieres", "provinces"
-  add_foreign_key "universitelangues", "provinces"
   add_foreign_key "zones", "users"
 end
