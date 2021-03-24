@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :students
   resources :zones
   resources :niveauformations
   get 'page/index'

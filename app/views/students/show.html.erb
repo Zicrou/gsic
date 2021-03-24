@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @student.surname %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @student.date_of_birth %>
+</p>
+
+<p>
+  <strong>Passport:</strong>
+  <%= @student.passport %>
+</p>
+
+<p>
+  <strong>Passport expiration date:</strong>
+  <%= @student.passport_expiration_date %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @student.address %>
+</p>
+
+<p>
+  <strong>Year of chinese language:</strong>
+  <%= @student.year_of_chinese_language %>
+</p>
+
+<p>
+  <strong>University of chinese language year:</strong>
+  <%= @student.university_of_chinese_language_year %>
+</p>
+
+<p>
+  <strong>Starting year major:</strong>
+  <%= @student.starting_year_major %>
+</p>
+
+<p>
+  <strong>University major:</strong>
+  <%= @student.university_major %>
+</p>
+
+<p>
+  <strong>Major:</strong>
+  <%= @student.major %>
+</p>
+
+<p>
+  <strong>Major duration:</strong>
+  <%= @student.major_duration %>
+</p>
+
+<p>
+  <strong>Graduation year:</strong>
+  <%= @student.graduation_year %>
+</p>
+
+<p>
+  <strong>Level of major:</strong>
+  <%= @student.level_of_major %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @student.telephone %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @student.photo %>
+</p>
+
+<p>
+  <strong>Passport picture:</strong>
+  <%= @student.passport_picture %>
+</p>
+
+<p>
+  <strong>Are you in china:</strong>
+  <%= @student.are_you_in_china %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Language province:</strong>
+  <%= @student.language_province %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

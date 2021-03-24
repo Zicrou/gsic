@@ -1,0 +1,2 @@
+json.extract! student, :id, :name, :surname, :date_of_birth, :passport, :passport_expiration_date, :address, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :university_major, :major, :major_duration, :graduation_year, :level_of_major, :telephone, :photo, :passport_picture, :are_you_in_china, :email, :language_province, :created_at, :updated_at
+json.url student_url(student, format: :json)

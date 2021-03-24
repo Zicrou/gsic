@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_175356) do
+ActiveRecord::Schema.define(version: 2021_03_24_040041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,31 @@ ActiveRecord::Schema.define(version: 2021_01_16_175356) do
     t.datetime "updated_at", null: false
     t.bigint "zone_id"
     t.index ["zone_id"], name: "index_provinces_on_zone_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.date "date_of_birth"
+    t.string "passport"
+    t.date "passport_expiration_date"
+    t.string "address"
+    t.date "year_of_chinese_language"
+    t.string "university_of_chinese_language_year"
+    t.date "starting_year_major"
+    t.string "university_major"
+    t.string "major"
+    t.integer "major_duration"
+    t.date "graduation_year"
+    t.string "level_of_major"
+    t.string "telephone"
+    t.string "photo"
+    t.string "passport_picture"
+    t.string "are_you_in_china"
+    t.string "email"
+    t.string "language_province"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "typebourses", force: :cascade do |t|
