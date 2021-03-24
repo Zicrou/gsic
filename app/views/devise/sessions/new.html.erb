@@ -1,6 +1,6 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <div class="card card-block col-md-8" style="margin-top:8%;margin-left:30%;">
-    <h2>Se connecter</h2>
+    <h2>Login</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="" style="margin-left:10%;">
@@ -22,7 +22,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Se connecter", class:"btn btn-primary"%>
+          <%= f.submit "Login", class:"btn btn-primary"%>
         </div>
       </div>
     <% end %>

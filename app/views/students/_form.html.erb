@@ -1,117 +1,223 @@
 <%= form_with(model: student, local: true) do |form| %>
   <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+    <% student.errors.full_messages.each do |error| %>
+      <%= alert_generator error %>
+    <% end %>
+  <% end %>
+    <div class="card card-block">
+      <p class="style" style="" >PERSONAL INFORMATIONS</p>
+      
+      <div class="form-group">
+        <label class="btn btn-primary">
+         Identity Picture<%= form.file_field :photo ,style:"display:none;"%>
+        </label>
+        <span>Format JPEG JPG PNG</span>
+      </div>
 
-      <ul>
-      <% student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="form-group">
+        <label class="btn btn-primary">
+          Passeport Picture<%= form.file_field :passport_image ,style:"display:none;"%>
+        </label>
+        <span>Format JPEG JPG PNG</span>
+
+      </div>
+      
+      <div class="form-group">
+        <%= form.label :name, class: ""%>
+        <%= form.text_field :name ,class: "form-control col-md-3"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :surname, class: ""%>
+        <%= form.text_field :surname ,class: "form-control col-md-3"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :date_of_birth  ,class: ""%>
+        <%= form.date_field :date_of_birth  ,class: "form-control col-md-3"%>
+      </div>
+
+      <!--div class="form-group">
+        <%#= form.label :genre_id  ,class: ""%>
+        <%#= form.collection_select(:genre_id, Genre.order(:name), :id, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+        ) %>
+      </div -->
+
+      <div class="form-group">
+        <%= form.label :telephone  ,class: ""%>
+        <%= form.text_field :telephone  ,class: "form-control col-md-3"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :email  ,class: ""%>
+        <%= form.text_field :email  ,class: "form-control col-md-3"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :passport_number  ,class: ""%>
+        <%= form.text_field :passport  ,class: "form-control col-md-3"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :passport_expiration_date  ,class: ""%>
+        <%= form.date_field :passport_expiration_date  ,class: "form-control col-md-3"%>
+      </div>
+
+      <!--div class="form-group">
+        <%#= form.label :carte_consulaire_id  ,class: ""%>
+        <%#= form.collection_select(:carteconsulaire_id, Carteconsulaire.order(:name), :id, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+        ) %>
+      </div-->
+
+      <div class="form-group">
+        <%= form.label :address  ,class: ""%>
+        <%= form.text_field :address  ,class: "form-control col-md-4"%>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :are_you_in_china? %>
+        <%= form.collection_select(:are_you_in_china, YesNo.order(:name), :name, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+        ) %>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="card card-block">
+      <p class="style" style="margin:auto;" >INFORMATIONS SUR MA BOURSE</p>
+      
+      <div class="form-group">
+        <%= form.label :boursier_id%>
+        <%= form.collection_select(:boursier_id, Boursier.order(:name), :id, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+        ) %>
+      </div>
+
+    <div class="form-group">
+      <%= form.label :Type_de_bourse%>
+      <%= form.collection_select(:typebourse_id, Typebourse.order(:name), :id, :name,
+        {
+          include_blank: true
+        },
+        class: "form-control col-md-3"
+      ) %>
+    </div>
+  </div>
+
+  <br>
+      <div class="card card-block">
+        <p class="style" style="margin:auto;" >ANNÉE DE LANGUE </p>
+        
+        <div class="form-group">
+          <%= form.label "Avez-vous fait une année de langue?" %>
+          <%= form.collection_select(:faireanneelangue_id, Faireanneelangue.order(:name), :id, :name,
+            {
+              include_blank: true
+            },
+            class: "form-control col-md-3"
+          ) %>
+        </div>
+        <span class="form-control col-md-1" style="color:red;"><strong>SI OUI</strong></span>
+        <div class="form-group">
+          <%= form.label "Province de l'année de langue" %>
+          <%= form.collection_select(:province_langue, Province.order(:name), :id, :name,
+              {
+                include_blank: true
+              },
+              class: "form-control col-md-3"
+            ) %>
+        </div>
+
+    <div class="form-group">
+      <%= form.label "En quelle année:" %>
+      <%= form.date_field :annee_langue_chinoise,class: "form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :universite_année_langue_chinoise%>
+      <%= form.text_field :universite_annee_langue_chinoise,class: "form-control col-md-3" %>
+    </div>
+      </div>
+    <br>
+
+    <div class="card card-block">
+      <p class="style" style="margin:auto;" >INFORMATIONS SUR MA FORMATION</p>
+      
+      <div class="form-group">
+      <%= form.label :année_début_formation %>
+      <%= form.date_field :annee_debut_filiere,class: "form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label "Province d'étude" %>
+      <%= form.collection_select(:province_id, Province.order(:name), :id, :name,
+          {
+            include_blank: true
+          },
+          class: "form-control col-md-3"
+      ) %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :université_de_formation%>
+      <%= form.text_field :universite_filiere,class: "form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :filiére%>
+      <%= form.text_field :filiere, class: "form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :Langue_de_formation  %>
+      <%= form.collection_select(:langueformation_id, Langueformation.order(:name), :id, :name,
+        {
+          include_blank: true
+        },
+        class: "form-control col-md-3"
+      ) %>
+      </div>
+
+    <div class="form-group">
+      <%= form.label :durée_de_la_formation%>
+      <%= form.text_field :duree_formation,class: "form-control col-md-3" %>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :année_de_graduation%>
+      <%= form.date_field :annee_de_graduation, class: "form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :niveau_formation%>
+      <%= form.collection_select(:niveau_formation, Niveauformation.order(:name), :name, :name,
+        {
+          include_blank: true
+        },
+        class: "form-control col-md-3"
+      ) %>
+    </div>
+    </div>
+
+    
+  <br>
+    <div class="form-group">
+      <%= form.submit 'Valider', class: 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passport %>
-    <%= form.text_field :passport %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passport_expiration_date %>
-    <%= form.date_select :passport_expiration_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year_of_chinese_language %>
-    <%= form.date_select :year_of_chinese_language %>
-  </div>
-
-  <div class="field">
-    <%= form.label :university_of_chinese_language_year %>
-    <%= form.text_field :university_of_chinese_language_year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :starting_year_major %>
-    <%= form.date_select :starting_year_major %>
-  </div>
-
-  <div class="field">
-    <%= form.label :university_major %>
-    <%= form.text_field :university_major %>
-  </div>
-
-  <div class="field">
-    <%= form.label :major %>
-    <%= form.text_field :major %>
-  </div>
-
-  <div class="field">
-    <%= form.label :major_duration %>
-    <%= form.number_field :major_duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :graduation_year %>
-    <%= form.date_select :graduation_year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :level_of_major %>
-    <%= form.text_field :level_of_major %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telephone %>
-    <%= form.text_field :telephone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passport_picture %>
-    <%= form.text_field :passport_picture %>
-  </div>
-
-  <div class="field">
-    <%= form.label :are_you_in_china %>
-    <%= form.text_field :are_you_in_china %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :language_province %>
-    <%= form.text_field :language_province %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

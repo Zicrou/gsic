@@ -1,65 +1,45 @@
-<p id="notice"><%= notice %></p>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+<br/>
+      <p><%#= link_to "Generate Carte", generate_matricule_member_card_etudiants_path(), class:"btn btn-primary" if logged_in?(:site_admin, :president) %></p>
+      <h1>List of Students<%#= "(#{@total_etudiant})" if logged_in?(:site_admin, :responsable_zone, :president, :embassade)%></h1> 
+      
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Date of Birth</th>
+              <th>Email</th>
+              <th>Telephone</th>
+              <th>Passport</th>
+              <th>University</th>
+              <th>Major</th>
+              <th colspan="3"></th>
+              
+            </tr>
+          </thead>
+          <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.surname %></td>
+            <td><%= student.date_of_birth %></td>
+            <td><%= student.email %></td>
+            <td><%= student.telephone %></td>
+            <td><%= student.passport %></td>
+            <td><%= student.university_major %></td>
+            <td><%= student.major %></td>
 
-<h1>Students</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Date of birth</th>
-      <th>Passport</th>
-      <th>Passport expiration date</th>
-      <th>Address</th>
-      <th>Year of chinese language</th>
-      <th>University of chinese language year</th>
-      <th>Starting year major</th>
-      <th>University major</th>
-      <th>Major</th>
-      <th>Major duration</th>
-      <th>Graduation year</th>
-      <th>Level of major</th>
-      <th>Telephone</th>
-      <th>Photo</th>
-      <th>Passport picture</th>
-      <th>Are you in china</th>
-      <th>Email</th>
-      <th>Language province</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-        <td><%= student.surname %></td>
-        <td><%= student.date_of_birth %></td>
-        <td><%= student.passport %></td>
-        <td><%= student.passport_expiration_date %></td>
-        <td><%= student.address %></td>
-        <td><%= student.year_of_chinese_language %></td>
-        <td><%= student.university_of_chinese_language_year %></td>
-        <td><%= student.starting_year_major %></td>
-        <td><%= student.university_major %></td>
-        <td><%= student.major %></td>
-        <td><%= student.major_duration %></td>
-        <td><%= student.graduation_year %></td>
-        <td><%= student.level_of_major %></td>
-        <td><%= student.telephone %></td>
-        <td><%= student.photo %></td>
-        <td><%= student.passport_picture %></td>
-        <td><%= student.are_you_in_china %></td>
-        <td><%= student.email %></td>
-        <td><%= student.language_province %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Student', new_student_path %>
+            <td><%= link_to 'Show', student, class:"btn btn-primary" %></td>
+            <!-- td><%#= link_to 'Carte_membre', carte_membre_etudiants_path(etudiant), class:"btn btn-primary" %></td>
+            <td><%#= link_to 'Voir',"#" ,data: {toggle: "modal", target: "##{etudiant.id}"}%></td>
+            <td><%#= link_to 'Edit', edit_etudiant_path(student), class:"btn btn-primary" if current_user.id === student.id %></td -->
+            <td><%= link_to 'Edit', edit_etudiant_path(student), class:"btn btn-primary"%></td>
+            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president, :responsable_zone) %></td>
+            
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+</main>

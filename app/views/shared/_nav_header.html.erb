@@ -6,10 +6,10 @@
   <% if logged_in?(:user) %>
     <span class="" style="color:white;">||<%= current_user.role.upcase %></span>
   <% end %>
-    <span class=""><%=link_to "|Dashboard(AESC)", etudiants_path, class:"navbar-brand"%></span>
+    <span class=""><%=link_to "|Dashboard(GSIC)", etudiants_path, class:"navbar-brand"%></span>
     
   <% elsif %>
-    <span class="navbar-brand">AESC</span>
+    <span class="navbar-brand">GSIC</span>
   <% end %>
   
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -20,39 +20,39 @@
       </li>
     <% if current_user.is_a?(GuestUser) %>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Se Connecter", new_user_session_path, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Login", new_user_session_path, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "S'inscrire", new_user_registration_path, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "SignUp", new_user_registration_path, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
     <% elsif current_user.role == :user %>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Déconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Deconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "M'enregistrer", new_etudiant_path, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Registration", new_student_path, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
     <% elsif current_user.role == :site_admin or current_user.role == :president or current_user.role == :responsable_zone %>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Déconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Deconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "M'enregistrer", new_etudiant_path, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Registration", new_student_path, class:"nav-link span" %></span>
+        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
+      </div>
+      <!--div class="nav-item">
+       <span class="style-color"><%#= link_to "Ma Zone", root_path() + "etudiants/mazone", class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
       </div>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Ma Zone", root_path() + "etudiants/mazone", class:"nav-link span" %></span>
+       <span class="style-color"><%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
-      </div>
-      <div class="nav-item">
-       <span class="style-color"><%= link_to "Configurer ma zone", zones_path, class:"nav-link span" %></span>
-        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable_zone, :embassade) %>
-      </div>
+      </div-->
     <% end %>
       
 

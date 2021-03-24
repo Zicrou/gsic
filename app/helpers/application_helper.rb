@@ -32,18 +32,13 @@ def bureau_nav_item
       title: "Home"
     },
     {
-      url: etudiants_path,
+      url: students_path,
       title: "Dashboard"
     },
     {
-      url: new_etudiant_path,
-      title: "M'enregistrer"
+      url: new_student_path,
+      title: "Registration"
     },
-    {
-      url: root_path() + "etudiants/mazone",
-      title: "Ma Zone"
-    },
-    
   ]
 end
     
@@ -87,12 +82,12 @@ end
         title: "Home"
       },
       {
-        url: etudiants_path,
+        url: students_path,
         title: "Dashboard"
       },
       {
-        url: new_etudiant_path,
-        title: "M'enregistrer"
+        url: new_student_path,
+        title: "Registration"
       },
       
     ]
@@ -131,7 +126,7 @@ end
   end
 
   def alert_generator msg
-    js add_gritter(msg, title: "AESC...", sticky: false, time: 8000)
+    js add_gritter(msg, title: "GSIC:", sticky: false, time: 5000)
   end
 end
 #*******************************************************************#
