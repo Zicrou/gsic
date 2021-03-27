@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_040041) do
+ActiveRecord::Schema.define(version: 2021_03_27_014650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,8 +102,6 @@ ActiveRecord::Schema.define(version: 2021_03_24_040041) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "zone_id"
-    t.index ["zone_id"], name: "index_provinces_on_zone_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -126,9 +124,26 @@ ActiveRecord::Schema.define(version: 2021_03_24_040041) do
     t.string "passport_picture"
     t.string "are_you_in_china"
     t.string "email"
-    t.string "language_province"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "boursier_id"
+    t.bigint "typebourse_id"
+    t.bigint "faireanneelangue_id"
+    t.bigint "genre_id"
+    t.bigint "langueformation_id"
+    t.bigint "niveauformation_id"
+    t.bigint "province_id"
+    t.bigint "language_province"
+    t.bigint "user_id"
+    t.string "passport_number"
+    t.index ["boursier_id"], name: "index_students_on_boursier_id"
+    t.index ["faireanneelangue_id"], name: "index_students_on_faireanneelangue_id"
+    t.index ["genre_id"], name: "index_students_on_genre_id"
+    t.index ["langueformation_id"], name: "index_students_on_langueformation_id"
+    t.index ["niveauformation_id"], name: "index_students_on_niveauformation_id"
+    t.index ["province_id"], name: "index_students_on_province_id"
+    t.index ["typebourse_id"], name: "index_students_on_typebourse_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "typebourses", force: :cascade do |t|
@@ -174,6 +189,13 @@ ActiveRecord::Schema.define(version: 2021_03_24_040041) do
   add_foreign_key "etudiants", "provinces"
   add_foreign_key "etudiants", "typebourses"
   add_foreign_key "etudiants", "users"
-  add_foreign_key "provinces", "zones"
+  add_foreign_key "students", "boursiers"
+  add_foreign_key "students", "faireanneelangues"
+  add_foreign_key "students", "genres"
+  add_foreign_key "students", "langueformations"
+  add_foreign_key "students", "niveauformations"
+  add_foreign_key "students", "provinces"
+  add_foreign_key "students", "typebourses"
+  add_foreign_key "students", "users"
   add_foreign_key "zones", "users"
 end

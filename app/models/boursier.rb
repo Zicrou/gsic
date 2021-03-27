@@ -1,3 +1,3 @@
 class Boursier < ApplicationRecord
-    has_many :boursiers
+    has_many :students
 end

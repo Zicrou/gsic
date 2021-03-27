@@ -1,3 +1,3 @@
 class Typebourse < ApplicationRecord
-    has_many :etudiants
+    has_many :students
 end

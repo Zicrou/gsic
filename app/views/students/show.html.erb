@@ -1,104 +1,184 @@
-<p id="notice"><%= notice %></p>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+<div class="row">
+    <div class="col-md-4"  style="margin-right:auto;">
+      <div class="card card-block">
+        <p class="style" >PHOTO</p>
+        <div>
+          <p>
+            <strong>Photo:</strong>
+          </p>
+          
+          <p><%= image_tag @student.photo.to_s, width:'100%' %></p>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @student.surname %>
-</p>
+    <div class="col-md-4">
+      <div class="card card-block">
+      <p class="style" >PASSEPORT PICTURE</p>
+        <div>
+          <p>
+            <strong>Passeport image:</strong>
+          </p>
+          <p><%= image_tag @student.passport_picture.to_s, width:'100%' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @student.date_of_birth %>
-</p>
+  <hr>
 
-<p>
-  <strong>Passport:</strong>
-  <%= @student.passport %>
-</p>
+  <div class="card card-block">
+    <p class="style" >PERSONAL INFORMATIONS</p>
+    <div>
+      <p>
+        <strong>Name:</strong>
+        <%= @student.name %>
+      </p>
 
-<p>
-  <strong>Passport expiration date:</strong>
-  <%= @student.passport_expiration_date %>
-</p>
+      <p>
+        <strong>Surname:</strong>
+        <%= @student.surname %>
+      </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @student.address %>
-</p>
+      <p>
+        <strong>Date of birth:</strong>
+        <%= @student.date_of_birth %>
+      </p>
 
-<p>
-  <strong>Year of chinese language:</strong>
-  <%= @student.year_of_chinese_language %>
-</p>
+      <p>
+        <strong>Sexe:</strong>
+        <%= @student.genre.name %>
+      </p>
 
-<p>
-  <strong>University of chinese language year:</strong>
-  <%= @student.university_of_chinese_language_year %>
-</p>
+      <p>
+        <strong>Telephone:</strong>
+        <%= @student.telephone %>
+      </p>
 
-<p>
-  <strong>Starting year major:</strong>
-  <%= @student.starting_year_major %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @student.email %>
+      </p>
 
-<p>
-  <strong>University major:</strong>
-  <%= @student.university_major %>
-</p>
+      <p>
+        <strong>Passeport Number:</strong>
+        <%= @student.passport_number %>
+      </p>
 
-<p>
-  <strong>Major:</strong>
-  <%= @student.major %>
-</p>
+      <p>
+        <strong>Passeport expiration date:</strong>
+        <%= @student.passport_expiration_date %>
+      </p>
 
-<p>
-  <strong>Major duration:</strong>
-  <%= @student.major_duration %>
-</p>
+      <p>
+        <strong>Are you in China:</strong>
+        <%= @student.are_you_in_china %>
+      </p>
 
-<p>
-  <strong>Graduation year:</strong>
-  <%= @student.graduation_year %>
-</p>
+      <p>
+        <strong>Address:</strong>
+        <%= @student.address %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Level of major:</strong>
-  <%= @student.level_of_major %>
-</p>
+  <hr>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @student.telephone %>
-</p>
+  <div class="row">
+    <div class="card card-block col-md-5" style="margin:1%;margin-right:auto;">
+      <p class="style" >SCHOLARSHIP INFORMATIONS</p>
+      <div>
+        <p>
+          <strong>Scholarahip:</strong>
+          <%= @student.boursier.name %>
+        </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @student.photo %>
-</p>
+        <p>
+          <strong>Type of scholarship:</strong>
+          <%= @student.typebourse.name if !@student.typebourse.nil?%>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Passport picture:</strong>
-  <%= @student.passport_picture %>
-</p>
+    
+    <div class="card card-block col-md-5" style="margin:1%;">
+      <p class="style" >YEAR OF CHINESE LANGUAGE</p>
+      <div>
+        <p>
+          <strong>Have done a chinese language year:</strong>
+          <%= @student.faireanneelangue.name %>
+        </p>
 
-<p>
-  <strong>Are you in china:</strong>
-  <%= @student.are_you_in_china %>
-</p>
+        <p>
+          <strong>Province of chinese language year:</strong>
+          <%= @language_province.name if !@language_province.nil?%>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
+        <p>
+          <strong>Year of chinese language:</strong>
+          <%= @student.year_of_chinese_language %>
+        </p>
 
-<p>
-  <strong>Language province:</strong>
-  <%= @student.language_province %>
-</p>
+        <p>
+          <strong>University of chinese language year:</strong>
+          <%= @student.university_of_chinese_language_year %>
+        </p>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+  <hr>
+
+  <div class="card card-block">
+    <p class="style" >MAJOR INFORMATIONS</p>
+    <div>
+      <p>
+        <strong>Starting year major:</strong>
+        <%= @student.starting_year_major %>
+      </p>
+
+      <p>
+        <strong>Province of major:</strong>
+        <%= @student.province.name %>
+      </p>
+
+      <p>
+        <strong>University of major:</strong>
+        <%= @student.university_major %>
+      </p>
+
+      <p>
+        <strong>Major:</strong>
+        <%= @student.major %>
+      </p>
+
+      <p>
+        <strong>Language of Major:</strong>
+        <%= @student.langueformation.name %>
+      </p>
+
+      <p>
+        <strong>Majorduration:</strong>
+        <%= @student.major_duration %>
+      </p>
+
+      <p>
+        <strong>Year of graduation:</strong>
+        <%= @student.graduation_year %>
+      </p>
+
+      <p>
+        <strong>Level of Major:</strong>
+        <%= @student.niveauformation.name %>
+      </p>
+    </div>
+  </div>
+
+  <hr>  
+
+  <%= link_to 'Edit', edit_student_path(@student) %> |
+  <%= link_to 'Back', students_path %>
+</main>

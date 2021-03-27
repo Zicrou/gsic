@@ -54,6 +54,6 @@ class StudentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def student_params
-      params.require(:student).permit(:name, :surname, :date_of_birth, :passport, :passport_expiration_date, :address, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :university_major, :major, :major_duration, :graduation_year, :level_of_major, :telephone, :photo, :passport_picture, :are_you_in_china, :email, :language_province)
+      params.require(:student).permit(:name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :photo, :passport_picture, :boursier_id, :typebourse_id, :faireanneelangue_id, :language_province, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id)
     end
 end

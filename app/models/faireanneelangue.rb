@@ -1,3 +1,3 @@
 class Faireanneelangue < ApplicationRecord
-    has_many :etudiants
+    has_many :students
 end

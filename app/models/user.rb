@@ -14,8 +14,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   
-  has_one :zone
-  has_one :etudiant
+  #has_one :zone
+  has_one :student
 
   def self.responsable_zone_only
     User.where(roles:"responsable_zone").or(User.where(roles:"site_admin")).or(User.where(roles:"president"))

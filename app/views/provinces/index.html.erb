@@ -7,9 +7,8 @@
   <table>
     <thead>
       <tr>
-        <th>Nom</th>
-        <th>du</th>
-        <th>Zone</th>
+        <th>Name</th>
+        <th></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -18,8 +17,8 @@
       <% @provinces.each do |province| %>
         <tr>
           <td><%= province.name %></td>
-          <td>==></td>
-          <td><%= province.zone.name  if !province.zone.nil?%></td>
+          <td></td>
+          <!--td><%#= province.zone.name  if !province.zone.nil?%></td-->
           <td><%= link_to 'Show', province %></td>
           <td><%= link_to 'Edit', edit_province_path(province) %></td>
           <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>

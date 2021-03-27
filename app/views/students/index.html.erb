@@ -27,7 +27,7 @@
             <td><%= student.date_of_birth %></td>
             <td><%= student.email %></td>
             <td><%= student.telephone %></td>
-            <td><%= student.passport %></td>
+            <td><%= student.passport_number %></td>
             <td><%= student.university_major %></td>
             <td><%= student.major %></td>
 
@@ -35,7 +35,7 @@
             <!-- td><%#= link_to 'Carte_membre', carte_membre_etudiants_path(etudiant), class:"btn btn-primary" %></td>
             <td><%#= link_to 'Voir',"#" ,data: {toggle: "modal", target: "##{etudiant.id}"}%></td>
             <td><%#= link_to 'Edit', edit_etudiant_path(student), class:"btn btn-primary" if current_user.id === student.id %></td -->
-            <td><%= link_to 'Edit', edit_etudiant_path(student), class:"btn btn-primary"%></td>
+            <td><%= link_to 'Edit', edit_student_path(student), class:"btn btn-primary"%></td>
             <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president, :responsable_zone) %></td>
             
           </tr>
