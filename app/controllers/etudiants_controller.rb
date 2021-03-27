@@ -3,7 +3,8 @@ class EtudiantsController < ApplicationController
   require 'date'
   before_action :set_etudiant, only: [:show, :edit, :update, :destroy]
 
-  access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone] => [:index, :show, :carte_membre, :mazone, :edit, :update, :new, :create, {except: [:destroy, :generate_matricule_member_card]}], [:president] => [:index, :show, :carte_membre, :mazone, :edit, :update, :new, :create, :generate_matricule_member_card, {except: [:destroy]}],site_admin: :all
+  access  site_admin: :all
+  #access  [:embassade] => [:index, :show, :new,{except: [:create, :edit, :update, :carte_membre, :destroy, :generate_matricule_member_card, :mazone]}], [:user, :responsable_zone] => [:index, :show, :carte_membre, :mazone, :edit, :update, :new, :create, {except: [:destroy, :generate_matricule_member_card]}], [:president] => [:index, :show, :carte_membre, :mazone, :edit, :update, :new, :create, :generate_matricule_member_card, {except: [:destroy]}],site_admin: :all
 
 
   # GET /etudiants

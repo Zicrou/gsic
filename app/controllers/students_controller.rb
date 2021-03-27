@@ -1,10 +1,18 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access  [:user, :responsable] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], [:president] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], site_admin: :all
   # GET /students
   def index
-    @students = Student.all
+    if !current_user.is_a?(GuestUser)
+      if logged_in?(:site_admin, :responsable, :president)
+        @students = Student.all
+      elsif logged_in?(:user)
+        @students = Student.where(user_id: current_user.id)
+      end
+    else
+      redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
+    end
   end
 
   # GET /students/1
@@ -23,6 +31,8 @@ class StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(student_params)
+    
+    @student.user_id = current_user.id
 
     if @student.save
       redirect_to @student, notice: 'Student was successfully created.'
@@ -33,6 +43,7 @@ class StudentsController < ApplicationController
 
   # PATCH/PUT /students/1
   def update
+
     if @student.update(student_params)
       redirect_to @student, notice: 'Student was successfully updated.'
     else
@@ -54,6 +65,6 @@ class StudentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def student_params
-      params.require(:student).permit(:name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :photo, :passport_picture, :boursier_id, :typebourse_id, :faireanneelangue_id, :language_province, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id)
+      params.require(:student).permit(:name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :photo, :passport_picture, :boursier_id, :typebourse_id, :faireanneelangue_id, :language_province, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id, :user_id)
     end
 end

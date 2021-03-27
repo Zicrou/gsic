@@ -7,7 +7,7 @@
           <li class="nav-item">
             <%= user_nav_helper 'nav-link', 'span' %>
           </li>
-        <% elsif current_user.role == :site_admin or current_user.role ==  :president or current_user.role ==  :responsable_zone or current_user.role == :embassade %>
+        <% elsif current_user.role == :site_admin or current_user.role ==  :president or current_user.role ==  :responsable %>
           <li class="nav-item">
             <%= bureau_nav_helper 'nav-link', 'span'%>
           </li>

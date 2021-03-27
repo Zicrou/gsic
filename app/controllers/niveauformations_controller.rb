@@ -1,6 +1,6 @@
 class NiveauformationsController < ApplicationController
   before_action :set_niveauformation, only: [:show, :edit, :update, :destroy]
-  access [:user, :embassade, :responsable_zone, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
+  access [:user, :responsable, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
 
   # GET /niveauformations
   def index
