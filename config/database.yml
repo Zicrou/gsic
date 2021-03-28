@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: gsic_production
-  username: gsic
-  password: <%= ENV['GSIC_DATABASE_PASSWORD'] %>
+    url: <%= ENV['DATABASE_URL'] %>
+
+#production:
+#  <<: *default
+#  database: gsic_production
+#  username: gsic
+#  password: <%= ENV['GSIC_DATABASE_PASSWORD'] %>
