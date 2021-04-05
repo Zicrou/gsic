@@ -4,6 +4,6 @@ class Zone < ApplicationRecord
   #has_many :etudiants
 
   validates_presence_of :name, :codeqr, :user_id
-  mount_uploader :codeqr, ZoneUploader
+  #mount_uploader :codeqr, ZoneUploader
 
 end
