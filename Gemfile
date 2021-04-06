@@ -70,5 +70,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'rubyzip', '= 1.0.0'
 gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
+gem "aws-sdk-s3", require: false
+
 #gem 'mimemagic', '~> 0.4.3'
 #gem 'image_processing', '~> 1.12', '>= 1.12.1'
