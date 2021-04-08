@@ -1,0 +1,11 @@
+<div class="col-md-6">
+  <h2 class="newinformation-post-title"><%= link_to newinformation.title, newinformation %></h2>
+  <p class="newinformation-post-meta" style="color:#20c997;">Published: <%= distance_of_time_in_words(newinformation.created_at, Time.now) %> ago</p>
+  
+  <%#= render partial: 'blogs/admin_actions', locals: { blog: blog } %>
+
+  <p style="border:1px solid black;width:30%;">
+    <%= truncate(markdown(newinformation.body), length: 200, escape: false) %>
+    <%= link_to "Read more...", newinformation %>
+  </p>
+</div>

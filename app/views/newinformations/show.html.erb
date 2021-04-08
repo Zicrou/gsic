@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @newinformation.title %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= markdown(@newinformation.body) %>
+  </p>
+
+  <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |
+  <%= link_to 'Back', newinformations_path %>
+</main>
