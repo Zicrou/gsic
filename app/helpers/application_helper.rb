@@ -39,6 +39,10 @@ def bureau_nav_item
       url: new_student_path,
       title: "Registration"
     },
+    {
+      url: newinformations_path,
+      title: "News"
+    },
   ]
 end
     
@@ -88,6 +92,10 @@ end
       {
         url: new_student_path,
         title: "Registration"
+      },
+      {
+        url: newinformations_path,
+        title: "News"
       },
       
     ]
