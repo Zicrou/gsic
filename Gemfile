@@ -74,3 +74,6 @@ gem "aws-sdk-s3", require: false
 
 #gem 'mimemagic', '~> 0.4.3'
 #gem 'image_processing', '~> 1.12', '>= 1.12.1'
+gem 'redcarpet', '~> 3.5', '>= 3.5.1'
+#gem 'redcarpet', '~> 3.5'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
