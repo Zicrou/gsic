@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>User Owner</th>
         <th>Image</th>
         <th colspan="3"></th>
       </tr>
@@ -16,6 +17,7 @@
       <% @docs.each do |doc| %>
         <tr>
           <td><%= doc.name %></td>
+          <td><%= doc.user.email  %></td>
           <td><%= image_tag doc.image, width:'5%' if doc.image.attached?  %></td>
           <td><%= link_to 'Show', doc %></td>
           <td><%= link_to 'Edit', edit_doc_path(doc) %></td>

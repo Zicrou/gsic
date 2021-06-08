@@ -54,6 +54,6 @@ class DocsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def doc_params
-      params.require(:doc).permit(:name, :image)
+      params.require(:doc).permit(:name, :image, :user_id)
     end
 end

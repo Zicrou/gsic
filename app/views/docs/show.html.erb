@@ -7,6 +7,11 @@
   </p>
 
   <p>
+    <strong>User's email owner:</strong>
+    <%= @doc.user.email %>
+  </p>
+
+  <p>
     <strong>Image:</strong>
     <%=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
   </p>
