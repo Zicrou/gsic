@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @doc.name %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
+  </p>
+
+  <%= link_to 'Edit', edit_doc_path(@doc) %> |
+  <%= link_to 'Back', docs_path %>
+</main>

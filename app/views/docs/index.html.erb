@@ -1,0 +1,31 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Docs</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @docs.each do |doc| %>
+        <tr>
+          <td><%= doc.name %></td>
+          <td><%= image_tag doc.image, width:'5%' if doc.image.attached?  %></td>
+          <td><%= link_to 'Show', doc %></td>
+          <td><%= link_to 'Edit', edit_doc_path(doc) %></td>
+          <td><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Document', new_doc_path %>
+</main>

@@ -43,6 +43,10 @@ def bureau_nav_item
       url: newinformations_path,
       title: "News"
     },
+    {
+      url: docs_path,
+      title: "Documents"
+    },
   ]
 end
     
@@ -96,6 +100,10 @@ end
       {
         url: newinformations_path,
         title: "News"
+      },
+      {
+        url: docs_path,
+        title: "Documents"
       },
       
     ]
