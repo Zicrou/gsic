@@ -4,7 +4,7 @@
   
   <%#= render partial: 'blogs/admin_actions', locals: { blog: blog } %>
 
-  <p style="border:1px solid black;width:30%;">
+  <!--p style="border:1px solid black;width:30%;"-->
     <%= truncate(markdown(newinformation.body), length: 200, escape: false) %>
     <%= link_to "Read more...", newinformation %>
   </p>

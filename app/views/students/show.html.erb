@@ -10,7 +10,7 @@
             <strong>Photo:</strong>
           </p>
           
-          <p><%= image_tag @student.photo, width:'50%' %></p>
+          <p><%= image_tag @student.photo, width:'50%' if @student.photo.attached? %></p>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
           <p>
             <strong>Passeport image:</strong>
           </p>
-          <p><%= image_tag @student.passport_picture, width:'50%' %></p>
+          <p><%= image_tag @student.passport_picture, width:'50%' if @student.passport_picture.attached? %></p>
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
       <p class="style" >YEAR OF CHINESE LANGUAGE</p>
       <div>
         <p>
-          <strong>Have done a chinese language year:</strong>
+          <strong>Have you done a chinese language year:</strong>
           <%= @student.faireanneelangue.name %>
         </p>
 
@@ -161,7 +161,7 @@
       </p>
 
       <p>
-        <strong>Majorduration:</strong>
+        <strong>Major duration:</strong>
         <%= @student.major_duration %>
       </p>
 

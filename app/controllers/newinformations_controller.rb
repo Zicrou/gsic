@@ -9,7 +9,7 @@ class NewinformationsController < ApplicationController
     if !current_user.is_a?(GuestUser)
       @newinformations = Newinformation.all
     else
-      redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
+      redirect_to root_path(), notice:"Permission denied"
     end
   end
 

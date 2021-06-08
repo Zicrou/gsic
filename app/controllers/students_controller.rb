@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
         @students = Student.where(user_id: current_user.id)
       end
     else
-      redirect_to root_path(), notice:"Vous n'êtes pas autorisé à acceder à cette page"
+      redirect_to root_path(), notice:"Permission denied"
     end
   end
 
