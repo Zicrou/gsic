@@ -14,7 +14,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   
-  #has_one :zone
+  has_one :bureausmember
   has_one :student
   has_many :docs
 

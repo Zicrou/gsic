@@ -60,6 +60,6 @@ class NewinformationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def newinformation_params
-      params.require(:newinformation).permit(:title, :body)
+      params.require(:newinformation).permit(:title, :body, :photo)
     end
 end

@@ -11,6 +11,10 @@
     <%= markdown(@newinformation.body) %>
   </p>
 
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @newinformation.photo if @newinformation.photo.attached?%>
+  </p>
   <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |
   <%= link_to 'Back', newinformations_path %>
 </main>
