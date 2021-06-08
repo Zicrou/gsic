@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bureausmembers
+  resources :profils
   resources :docs
   resources :newinformations
   resources :students

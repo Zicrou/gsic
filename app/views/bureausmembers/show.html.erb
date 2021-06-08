@@ -1,0 +1,21 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Member's name:</strong>
+    <%= @bureausmember.user.student.name + " " + @bureausmember.user.student.surname %>
+  </p>
+
+  <p>
+    <strong>Member's email:</strong>
+    <%= @bureausmember.user.email %>
+  </p>
+
+  <p>
+    <strong>Profil:</strong>
+    <%= @bureausmember.profil.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_bureausmember_path(@bureausmember) %> |
+  <%= link_to 'Back', bureausmembers_path %>
+</main>

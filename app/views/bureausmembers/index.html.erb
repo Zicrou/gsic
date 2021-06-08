@@ -1,0 +1,31 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Bureau's member</h1>
+
+      <% @bureausmembers.each do |bureausmember| %>
+        <div class="card">
+          <div class="form-group">
+            <div class="row">
+              <div class="card-body">
+                <div class="col-md-2"><b> Name : </b><%= bureausmember.user.student.name + " " + bureausmember.user.student.surname %></div>
+                <div class="col-md-2"><b>Role : </b><%= bureausmember.profil.name %></div>
+                <div class="col-md-4"><b>Created : </b><%= bureausmember.created_at %></div>
+                <div class="col-md-4"><b>Updated : </b><%= bureausmember.updated_at %></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="">
+            <div class="col-md-2 btn btn-info"><%= link_to 'Show', bureausmember %></div>
+            <div class="col-md-2 btn btn-warning"><%= link_to 'Edit', edit_bureausmember_path(bureausmember) %></div>
+            <!--div class="col-sm-2 btn btn-danger"><%#= link_to 'Destroy', bureausmember, method: :delete, data: { confirm: 'Are you sure?' } %></div-->
+          </div>
+        </div>
+        <br>
+      <% end %>
+
+  <br>
+
+  <%= link_to 'New Role', new_bureausmember_path, class:"btn btn-primary" %>
+</main>

@@ -2,17 +2,17 @@
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>Name : </strong>
     <%= @doc.name %>
   </p>
 
   <p>
-    <strong>User's email owner:</strong>
+    <strong>User's email owner : </strong>
     <%= @doc.user.email %>
   </p>
 
-  <p>
-    <strong>Image:</strong>
+  <p style="border: 1px solid #5bc0de">
+    <strong></strong>
     <%=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
   </p>
 

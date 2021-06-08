@@ -47,6 +47,10 @@ def bureau_nav_item
       url: docs_path,
       title: "Documents"
     },
+    {
+      url: bureausmembers_path,
+      title: "Roles"
+    },
   ]
 end
     
