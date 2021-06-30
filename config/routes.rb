@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get :generate_matricule_member_card
     end
   end
+  get '/check.txt', to: proc {[200, {}, ['it_works']]}
   root to: 'page#index'
   #devise_scope :user do
   #  root to: "devise/sessions#new"
