@@ -75,9 +75,13 @@ test:
 #
 # You can use this database configuration with:
 #
+#production:
+#  <<: *default
+#  url: <%= ENV['DATABASE_URL'] %>
+
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: postgres:72450a29945e0ede59e864f2e648c311@dokku-postgres-gsicdb:5432/gsicdb
 
 #production:
 #  <<: *default
