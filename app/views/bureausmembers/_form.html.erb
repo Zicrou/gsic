@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :profile _id  ,class: ""%>
+    <%= form.label :profile_id  ,class: ""%>
     <%= form.collection_select(:profil_id, Profil.order(:name), :id, :name,
       {
         include_blank: true
