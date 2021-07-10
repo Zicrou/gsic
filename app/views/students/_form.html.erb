@@ -16,7 +16,7 @@
 
       <div class="form-group">
         <label class="btn btn-primary">
-          Passeport Picture<%= form.file_field :passport_picture ,style:"display:none;"%>
+          Passport Picture<%= form.file_field :passport_picture ,style:"display:none;"%>
         </label>
         <span>Format JPEG JPG PNG</span>
 
@@ -33,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :Sexe  ,class: ""%>
+        <%= form.label :Sex  ,class: ""%>
         <%= form.collection_select(:genre_id, Genre.order(:name), :id, :name,
           {
             include_blank: true
@@ -100,7 +100,7 @@
       <p class="style" style="margin:auto;" >SCHOLARSHIP INFORMATIONS</p>
       
       <div class="form-group">
-        <%= form.label :"Do you have an scholarship?" %>
+        <%= form.label :"Do you have scholarship?" %>
         <%= form.collection_select(:boursier_id, Boursier.order(:name), :id, :name,
           {
             include_blank: true

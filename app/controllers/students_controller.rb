@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   def index
     if !current_user.is_a?(GuestUser)
       if logged_in?(:site_admin, :responsable, :president)
-        @students = Student.all
+        @students = Student.all.recent
       elsif logged_in?(:user)
         @students = Student.where(user_id: current_user.id)
       end

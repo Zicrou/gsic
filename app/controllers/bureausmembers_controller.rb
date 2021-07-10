@@ -1,6 +1,7 @@
 class BureausmembersController < ApplicationController
   before_action :set_bureausmember, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access [:responsable] => [:index, {except: [:show, :new, :create, :edit, :update,:destroy]}],[:president] => [:index, :show, :new, :create, :edit, :update, :destroy], [:user] => [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], site_admin: :all
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
 
   # GET /bureausmembers
   def index

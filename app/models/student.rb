@@ -19,4 +19,8 @@ class Student < ApplicationRecord
     #mount_uploader :photo, EtudiantUploader
     #mount_uploader :passport_picture, EtudiantUploader
     #mount_uploader :photo, EtudiantUploader
+
+    def self.recent
+        order("province_id ASC")
+    end
 end
