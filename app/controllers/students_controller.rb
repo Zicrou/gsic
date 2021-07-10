@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access  [:user, :responsable, :president] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], site_admin: :all
+  access  [:user, :responsable, :president] => [:index, :show, :edit, :update, :new, :create, :search, {except: [:destroy]}],[:user] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], site_admin: :all
   # GET /students
   def index
     if !current_user.is_a?(GuestUser)
