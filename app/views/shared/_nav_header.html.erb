@@ -6,7 +6,7 @@
   <% if logged_in?(:user) %>
     <span class="" style="color:white;">||<%= current_user.role.upcase %></span>
   <% end %>
-    <span class=""><%=link_to "|Dashboard(GSIC)", etudiants_path, class:"navbar-brand"%></span>
+    <span class=""><%=link_to "|Dashboard(GSIC)", students_path, class:"navbar-brand"%></span>
     
   <% elsif %>
     <span class="navbar-brand">GSIC</span>
