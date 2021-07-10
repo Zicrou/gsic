@@ -4,7 +4,7 @@
       <h1>List of Students<%= "(#{Student.all.count})" if logged_in?(:site_admin, :responsable, :president)%></h1> 
       <% if logged_in?(:site_admin, :president, :responsable)%>
         <%= form_for Student.new, url: search_students_path, method: :get do |form| %>
-        <%= form.text_field :search_by_passport, class: 'col-md-4', placeholder: 'Tape passport number then hit Enter', value: @query %>
+        <%= form.text_field :search_by_passport, class: 'col-md-4 form-control', placeholder: 'Tape passport number then hit Enter', value: @query %>
 
           <% if defined?(@query) && @query.present?  %>
             <%= link_to 'Reinitialise', students_path %>
