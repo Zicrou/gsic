@@ -61,6 +61,11 @@ class StudentsController < ApplicationController
     redirect_to students_url, notice: 'Student was successfully destroyed.'
   end
 
+  def search
+    @query = search_params.fetch(:search_by_passport)
+      @students = Student.where(passport_number: @query)
+      render :index
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -70,5 +75,9 @@ class StudentsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def student_params
       params.require(:student).permit(:name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :photo, :passport_picture, :boursier_id, :typebourse_id, :faireanneelangue_id, :language_province, :year_of_chinese_language, :university_of_chinese_language_year, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id, :user_id)
+    end
+
+    def search_params
+      params.require(:student).permit(:search_by_passport)
     end
 end

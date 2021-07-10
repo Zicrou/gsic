@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :profils
   resources :docs
   resources :newinformations
-  resources :students
+  resources :students do
+    collection do
+      get :search
+    end
+  end
   resources :zones
   resources :niveauformations
   get 'page/index'

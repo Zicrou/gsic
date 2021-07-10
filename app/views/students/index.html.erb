@@ -1,8 +1,15 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
 <br/>
       <p><%#= link_to "Generate Carte", generate_matricule_member_card_etudiants_path(), class:"btn btn-primary" if logged_in?(:site_admin, :president) %></p>
-      <h1>List of Students<%#= "(#{@total_etudiant})" if logged_in?(:site_admin, :responsable_zone, :president, :embassade)%></h1> 
-      
+      <h1>List of Students<%= "(#{Student.all.count})" if logged_in?(:site_admin, :responsable, :president)%></h1> 
+      <%= form_for Student.new, url: search_students_path, method: :get do |form| %>
+      <%= form.text_field :search_by_passport, class: 'col-md-4', placeholder: 'Tape passport number then hit Enter', value: @query %>
+
+        <% if defined?(@query) && @query.present?  %>
+          <%= link_to 'Reinitialise', students_path %>
+        <% end %>
+      <% end %>
+      <hr>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
