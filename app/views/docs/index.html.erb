@@ -19,7 +19,7 @@
       <div class="">
         <div class="col-md-2 btn btn-info"><%= link_to 'Show', doc %></div>
         <div class="col-md-2 btn btn-warning"><%= link_to 'Edit', edit_doc_path(doc) %></div>
-        <%#= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president) %>
       </div>
     </div>
 
@@ -30,5 +30,5 @@
     
   <br>
 
-  <%= link_to 'New Document', new_doc_path, class:"btn btn-primary" %>
+  <%= link_to 'New Document', new_doc_path, class:"btn btn-primary" if logged_in?(:site_admin, :responsable, :president) %>
 </main>

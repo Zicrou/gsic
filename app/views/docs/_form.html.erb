@@ -2,7 +2,7 @@
   <% if doc.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
-
+      
       <ul>
       <% doc.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <% if !@msg.nil? %>
+    <li><%= @msg %></li>
+  <% end %>
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class:"form-control, col-md-4" %>
@@ -31,6 +33,6 @@
       </div>
 
   <div class="actions">
-    <%= form.submit "Create A Doc" %>
+    <%= form.submit "Create A Doc", class:"btn btn-primary" %>
   </div>
 <% end %>

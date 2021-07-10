@@ -1,7 +1,7 @@
 class DocsController < ApplicationController
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access [:responsable] => [:index, :show, :new, :create, :edit, :update, {except: [:destroy]}],[:president] => [:index, :show, :new, :create, :edit, :update, :destroy], [:user] => [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], site_admin: :all
   # GET /docs
   def index
     @docs = Doc.all
@@ -24,10 +24,15 @@ class DocsController < ApplicationController
   def create
     @doc = Doc.new(doc_params)
 
-    if @doc.save
-      redirect_to @doc, notice: 'Doc was successfully created.'
-    else
+    if !@doc.image.attached?
+      @msg = 'You should upload a Document.'
       render :new
+    else
+      if @doc.save
+        redirect_to @doc, notice: 'Doc was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
