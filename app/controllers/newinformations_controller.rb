@@ -31,7 +31,7 @@ class NewinformationsController < ApplicationController
     @newinformation = Newinformation.new(newinformation_params)
 
     if @newinformation.save
-      redirect_to @newinformation, notice: 'Newinformation was successfully created.'
+      redirect_to @newinformation, notice: 'New information was successfully created.'
     else
       render :new
     end
@@ -40,7 +40,7 @@ class NewinformationsController < ApplicationController
   # PATCH/PUT /newinformations/1
   def update
     if @newinformation.update(newinformation_params)
-      redirect_to @newinformation, notice: 'Newinformation was successfully updated.'
+      redirect_to @newinformation, notice: 'New information was successfully updated.'
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class NewinformationsController < ApplicationController
   # DELETE /newinformations/1
   def destroy
     @newinformation.destroy
-    redirect_to newinformations_url, notice: 'Newinformation was successfully destroyed.'
+    redirect_to newinformations_url, notice: 'New information was successfully destroyed.'
   end
 
   private
