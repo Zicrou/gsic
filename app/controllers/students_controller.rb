@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access  [:user, :responsable] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], [:president] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], site_admin: :all
+  access  [:user, :responsable, :president] => [:index, :show, :edit, :update, :new, :create, {except: [:destroy]}], site_admin: :all
   # GET /students
   def index
     if !current_user.is_a?(GuestUser)
@@ -34,10 +34,14 @@ class StudentsController < ApplicationController
     
     @student.user_id = current_user.id
 
-    if @student.save
-      redirect_to @student, notice: 'Student was successfully created.'
+    if !current_user.student.nil?
+      redirect_to @student, notice: 'This user already have a student'
     else
-      render :new
+      if @student.save
+        redirect_to @student, notice: 'Student was successfully created.'
+      else
+        render :new
+      end
     end
   end
 

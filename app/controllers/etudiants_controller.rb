@@ -16,7 +16,7 @@ class EtudiantsController < ApplicationController
     #@entreenchine
     if logged_in?(:site_admin, :responsable_zone, :president)
       @etudiants = Etudiant.all
-      @etudiant_zone = current_user.etudiant.province.zone
+      #@etudiant_zone = current_user.etudiant.province.zone
       
 
     elsif logged_in?(:embassade)
