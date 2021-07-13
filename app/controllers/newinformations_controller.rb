@@ -15,6 +15,7 @@ class NewinformationsController < ApplicationController
 
   # GET /newinformations/1
   def show
+    #pry
   end
 
   # GET /newinformations/new

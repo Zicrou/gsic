@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get :generate_matricule_member_card
     end
   end
+  #mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   #get '/check.txt', to: proc {[200, {}, ['working']]}
   root to: 'page#index'
   #devise_scope :user do

@@ -5,7 +5,6 @@
     <strong>Title:</strong>
     <%= @newinformation.title %>
   </p>
-
   <p>
     <strong>Body:</strong>
     <%= markdown(@newinformation.body) %>
@@ -13,7 +12,13 @@
 
   <p>
     <strong>Image:</strong>
-    <%= image_tag @newinformation.photo if @newinformation.photo.attached?%>
+    <% if !@newinformation.photo.attachment.nil? %>
+      <% if @newinformation.photo.representable? %>
+        <embed height="800" width="80%" src="<%= polymorphic_url(@newinformation.photo) %>">
+      <% elsif @newinformation.photo.attached? %>
+          <%= image_tag @newinformation.photo %>
+      <% end %>
+    <% end %>
   </p>
   <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |<%= link_to 'Destroy', @newinformation, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president)%>
   <%= link_to 'Back', newinformations_path %>
