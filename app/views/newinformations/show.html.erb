@@ -16,7 +16,7 @@
       <% if @newinformation.photo.representable? %>
         <embed height="800" width="100%" src="<%= polymorphic_url(@newinformation.photo) %>">
       <% elsif @newinformation.photo.attached? %>
-          <span><%= image_tag @newinformation.photo, width="50%" %></span>
+          <span><%= image_tag @newinformation.photo, width: "50%" %></span>
       <% end %>
     <% end %>
   </p>
