@@ -15,7 +15,7 @@
             <%# if @student.photo.content_type == "application/pdf" %>
               <!--iframe src="<%#= rails_blob_path(@student.photo, disposition: :inline) %>" height="400" width="auto"></iframe-->
             <%# else %>
-              <%= image_tag @student.photo, width: "50%" %>
+              <%= image_tag @student.photo, width: "50%" if @student.photo.attached?%>
             <%# end %>
           <%# end %>
             
@@ -36,7 +36,7 @@
             <%# if @student.passport_picture.content_type == "application/pdf" %>
               <!--iframe src="<%#= rails_blob_path(@student.passport_picture, disposition: :inline) %>" height="800" width="500"></iframe-->
             <%# else %>
-              <%= image_tag @student.passport_picture, width: "50%" %>
+              <%= image_tag @student.passport_picture, width: "50%" if @student.passport_picture.attached?%>
             <%# end %>
           <%# end %>
           </p>

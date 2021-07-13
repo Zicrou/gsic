@@ -13,12 +13,12 @@
 
   <p style="border: 1px solid #5bc0de;">
     <strong></strong>
-    <%#=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
+    <%=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
     <%# if !@doc.image.attachment.nil? %>
       <%# if @doc.image.content_type == "application/pdf" %>
         <!--iframe src="<%#= rails_blob_path(@doc.image, disposition: :inline) %>" height="800" width="500"></iframe-->
       <%# else %>
-        <%= image_tag @doc.image, width: "50%" %>
+        <%#= image_tag @doc.image, width: "50%" %>
       <%# end %>
     <%# end %>
   </p>
