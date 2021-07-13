@@ -12,13 +12,13 @@
 
   <p style="">
     <strong>Image:</strong>
-    <% if !@newinformation.photo.attachment.nil? %>
-      <% if @newinformation.photo.content_type == "application/pdf" %>
-        <iframe src="<%= rails_blob_path(@newinformation.photo, disposition: :inline) %>" height="800" width="500"></iframe>
-      <% else %>
+    <%# if !@newinformation.photo.attachment.nil? %>
+      <%# if @newinformation.photo.content_type == "application/pdf" %>
+        <!--iframe src="<%#= rails_blob_path(@newinformation.photo, disposition: :inline) %>" height="800" width="500"></iframe-->
+      <%# else %>
         <%= image_tag @newinformation.photo, width: "50%" %>
-      <% end %>
-    <% end %>
+      <%# end %>
+    <%# end %>
 
       <%# if @newinformation.photo.representable? %>
         
