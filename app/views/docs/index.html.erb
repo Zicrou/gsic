@@ -17,9 +17,20 @@
       </div>
 
       <div class="">
-        <div class="col-md-2 btn btn-info"><%= link_to 'Show', doc %></div>
-        <div class="col-md-2 btn btn-warning"><%= link_to 'Edit', edit_doc_path(doc) %></div>
-        <%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president) %>
+        <div>
+          <%= link_to 'Show', doc, class:"col-md-2 btn btn-info" %>
+        </div>
+        <% if logged_in?(:site_admin, :president) %>
+          <div>
+            <%= link_to 'Edit', edit_doc_path(doc),class:"col-md-2 btn btn-warning" %>
+          </div>
+        <% end %>
+
+        <% if logged_in?(:site_admin, :president) %>
+          <div>
+            <%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' }, class:"col-md-2 btn btn-danger"%>
+          </div>
+        <% end %>
       </div>
     </div>
 

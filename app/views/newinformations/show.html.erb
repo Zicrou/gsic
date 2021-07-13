@@ -14,12 +14,14 @@
     <strong>Image:</strong>
     <% if !@newinformation.photo.attachment.nil? %>
       <% if @newinformation.photo.representable? %>
-        <embed height="800" width="85%" src="<%= polymorphic_url(@newinformation.photo) %>">
+        <embed height="800" width="100%" src="<%= polymorphic_url(@newinformation.photo) %>">
       <% elsif @newinformation.photo.attached? %>
-          <span><%= image_tag @newinformation.photo %></span>
+          <span><%= image_tag @newinformation.photo, width="50%" %></span>
       <% end %>
     <% end %>
   </p>
-  <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |<%= link_to 'Destroy', @newinformation, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :president)%>
+  <% if logged_in?(:site_admin, :president) %>
+    <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |<%= link_to 'Destroy', @newinformation, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <%= link_to 'Back', newinformations_path %>
 </main>

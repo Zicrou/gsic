@@ -3,9 +3,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <% if !current_user.is_a?(GuestUser) %>
-  <% if logged_in?(:user) %>
-    <span class="" style="color:white;">||<%= current_user.role.upcase %></span>
-  <% end %>
+    <% if logged_in?(:user) %>
+      <span class="" style="color:white;">||<%= current_user.role.upcase %></span>
+    <% end %>
     <span class=""><%=link_to "|Dashboard(GSIC)", students_path, class:"navbar-brand"%></span>
     
   <% elsif %>
@@ -34,7 +34,18 @@
       </div>
       <div class="nav-item">
        <span class="style-color"><%= link_to "Registration", new_student_path, class:"nav-link span" %></span>
-        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
+      </div>
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "News", newinformations_path, class:"nav-link span" %></span>
+      </div>
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Documents", docs_path, class:"nav-link span" %></span>
+      </div>
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Home", root_path, class:"nav-link span" %></span>
       </div>
     <% elsif current_user.role == :site_admin or current_user.role == :president or current_user.role == :responsable %>
       <div class="nav-item">
@@ -46,13 +57,21 @@
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
       </div>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Documents", docs_path(), class:"nav-link span" %></span>
-        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
+       <span class="style-color"><%= link_to "Documents", docs_path, class:"nav-link span" %></span>
       </div>
-      <!--div class="nav-item">
-       <span class="style-color"><%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" %></span>
-        <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
-      </div-->
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "News", newinformations_path, class:"nav-link span" %></span>
+      </div>
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Roles", bureausmembers_path, class:"nav-link span" %></span>
+      </div>
+
+      <div class="nav-item">
+       <span class="style-color"><%= link_to "Home", root_path, class:"nav-link span" %></span>
+      </div>
+
     <% end %>
       
 

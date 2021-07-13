@@ -16,7 +16,7 @@
     <%#=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
     <% if !@doc.image.attachment.nil? %>
       <% if @doc.image.representable? %>
-        <embed height="800" width="85%" src="<%= polymorphic_url(@doc.image) %>">
+        <embed height="800" width="100%" src="<%= polymorphic_url(@doc.image) %>">
       <% elsif @doc.image.attached? %>
           <%= image_tag @doc.image, width:'50%' %>
       <% end %>

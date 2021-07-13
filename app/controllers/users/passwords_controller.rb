@@ -20,8 +20,8 @@ class Users::PasswordsController < Devise::PasswordsController
       #@link2 = "http://localhost:3000/password/edit?reset_password_token=#{raw}"
       #puts @link1
       #puts @link2
-      redirect_to "http://localhost:3000/password/edit?reset_password_token=" + raw, notice:"Create your new password"
-      #redirect_to "https://www.aesc.work/password/edit?reset_password_token=" + raw, notice:"Définissez votre nouveau ot de passe"
+      #redirect_to "http://localhost:3000/password/edit?reset_password_token=" + raw, notice:"Create your new password"
+      redirect_to "https://www.gsic.info/password/edit?reset_password_token=" + raw, notice:"Create your new password"
       #respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
     #link_to edit_password_path(@link)
     end
