@@ -55,6 +55,6 @@ class BureausmembersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bureausmember_params
-      params.require(:bureausmember).permit(:user_id, :profil_id)
+      params.require(:bureausmember).permit(:user_id, :profil_id, :duration)
     end
 end

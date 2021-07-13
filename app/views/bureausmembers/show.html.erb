@@ -16,6 +16,16 @@
     <%= @bureausmember.profil.name %>
   </p>
 
+  <p>
+    <strong>Starting At:</strong>
+    <%= @bureausmember.created_at %>
+  </p>
+
+  <p>
+    <strong>Duration:</strong>
+    <%= @bureausmember.duration %>
+  </p>
+
   <%= link_to 'Edit', edit_bureausmember_path(@bureausmember) %> |
   <%= link_to 'Back', bureausmembers_path %>
 </main>
