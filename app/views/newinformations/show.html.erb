@@ -10,13 +10,13 @@
     <%= markdown(@newinformation.body) %>
   </p>
 
-  <p>
+  <p style="">
     <strong>Image:</strong>
     <% if !@newinformation.photo.attachment.nil? %>
       <% if @newinformation.photo.representable? %>
-        <embed height="800" width="80%" src="<%= polymorphic_url(@newinformation.photo) %>">
+        <embed height="800" width="85%" src="<%= polymorphic_url(@newinformation.photo) %>">
       <% elsif @newinformation.photo.attached? %>
-          <%= image_tag @newinformation.photo %>
+          <span><%= image_tag @newinformation.photo %></span>
       <% end %>
     <% end %>
   </p>

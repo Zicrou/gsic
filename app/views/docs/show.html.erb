@@ -11,9 +11,16 @@
     <%= @doc.user.email %>
   </p>
 
-  <p style="border: 1px solid #5bc0de">
+  <p style="border: 1px solid #5bc0de;">
     <strong></strong>
-    <%=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
+    <%#=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
+    <% if !@doc.image.attachment.nil? %>
+      <% if @doc.image.representable? %>
+        <embed height="800" width="85%" src="<%= polymorphic_url(@doc.image) %>">
+      <% elsif @doc.image.attached? %>
+          <%= image_tag @doc.image, width:'50%' %>
+      <% end %>
+    <% end %>
   </p>
 
   <%= link_to 'Edit', edit_doc_path(@doc) %> |
