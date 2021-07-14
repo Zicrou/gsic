@@ -14,12 +14,12 @@
   <p style="border: 1px solid #5bc0de;">
     <strong></strong>
     <%#=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
-    <% if !@doc.image.attachment.nil? %>
-      <% if @doc.image.content_type == "application/pdf" %>
+    <% if @doc.image %>
+      <% if @doc.image["mime_type"] == "application/pdf" %>
         
-        <%= link_to @doc.image.filename, rails_blob_path(@doc.image, disposition:"attachment") %>
+        <%= link_to @doc.image["filename"], @doc.image_url, disposition:"inline" %>
       <% else %>
-        <%= image_tag @doc.image, width: "50%" %>
+        <%= image_tag @doc.image_url if @doc.image%>
       <% end %>
     <% end %>
   </p>

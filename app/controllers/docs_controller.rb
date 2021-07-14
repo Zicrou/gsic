@@ -24,16 +24,16 @@ class DocsController < ApplicationController
   def create
     @doc = Doc.new(doc_params)
 
-    if !@doc.image.attached?
-      @msg = 'You should upload a Document.'
-      render :new
-    else
+    #if !@doc.image.attached?
+    #  @msg = 'You should upload a Document.'
+    #  render :new
+    #else
       if @doc.save
         redirect_to @doc, notice: 'Doc was successfully created.'
       else
         render :new
       end
-    end
+    #end
   end
 
   # PATCH/PUT /docs/1
