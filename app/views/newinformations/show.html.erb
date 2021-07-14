@@ -18,7 +18,7 @@
       <%= link_to @newinformation.photo.filename, polymorphic_url(@newinformation.photo), target: "_blank" %>
       <% else %>
       <%#= image_tag @newinformation.photo.representation(resize_to_limit: [100, 100]) if @newinformation.photo.representable?%>
-        <%= image_tag @newinformation.photo, width: "50%" if @newinformation.photo.attached?%>
+        <%= image_tag @newinformation.photo, width: "50%" %>
       <% end %>
     <% end %>
 
