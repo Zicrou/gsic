@@ -17,7 +17,7 @@
     <% if !@doc.image.attachment.nil? %>
       <% if @doc.image.content_type == "application/pdf" %>
         <!--iframe src="<%#= rails_blob_path(@doc.image, disposition: :inline) %>" height="800" width="500"></iframe-->
-        <%=link_to @doc.image.filename, polymorphic_url(@doc.image), target: "_blank" %>
+        <%= link_to @doc.image.filename, url_for(@doc.image), target:"_blank", width: '50%' %>
       <% else %>
         <%= image_tag @doc.image, width: "50%" %>
       <% end %>
