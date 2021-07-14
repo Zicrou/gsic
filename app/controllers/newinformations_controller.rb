@@ -1,7 +1,7 @@
 class NewinformationsController < ApplicationController
   before_action :set_newinformation, only: [:show, :edit, :update, :destroy]
   #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access all: [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], [:responsable, :president] => [:index, :show, :new, :create, :edit, :update, [:destroy]], user: [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], site_admin: :all
+  access all: [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], [:responsable, :president] => [:index, :show, :new, :create, :edit, :update, [:destroy] ], user: [:index, :show, {except: [:new, :create, :edit, :update, :destroy]}], site_admin: :all
   #access [:user, :responsable, :president] => {except: [:index, :show, :new, :create, :edit, :update, :destroy]}, site_admin: :all
 
   # GET /newinformations
