@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
   #mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
-  #get '/check.txt', to: proc {[200, {}, ['working']]}
+  get '/check.txt', to: proc {[200, {}, ['its_working']]}
   root to: 'page#index'
   #devise_scope :user do
   #  root to: "devise/sessions#new"
