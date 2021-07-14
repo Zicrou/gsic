@@ -12,14 +12,14 @@
 
   <p style="">
     <strong>Image:</strong>
-    <% if !@newinformation.photo.attachment.nil? %>
-      <% if @newinformation.photo.content_type == "application/pdf" %>
-        <!--iframe src="<%= rails_blob_path(@newinformation.photo) %>" height="800" width="500"></iframe-->
-      <%#= link_to @newinformation.photo.filename, polymorphic_url(@newinformation.photo), target: "_blank" %>
-      <%= link_to @newinformation.photo.filename, rails_blob_path(@newinformation.photo, disposition:"attachment") %>
+    <% if @newinformation.photo %>
+      <% if @newinformation.photo["mime_type"] == "application/pdf" %>
+        <!--iframe src="<%#= rails_blob_path(@newinformation.photo) %>" height="800" width="500"></iframe-->
+        <%#= link_to @newinformation.photo.filename, polymorphic_url(@newinformation.photo), target: "_blank" %>
+        <%= link_to @newinformation.photo["filename"], @newinformation.photo_url, disposition:"inline" %>
       <% else %>
-      <%#= image_tag @newinformation.photo.representation(resize_to_limit: [100, 100]) if @newinformation.photo.representable?%>
-        <%= image_tag @newinformation.photo, width: "50%" %>
+        <%#= image_tag @newinformation.photo.representation(resize_to_limit: [100, 100]) if @newinformation.photo.representable?%>
+        <%= image_tag @newinformation.photo_url, width: "50%" %>
       <% end %>
     <% end %>
 
