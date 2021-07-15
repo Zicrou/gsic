@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_074522) do
+ActiveRecord::Schema.define(version: 2021_07_15_060108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(version: 2021_07_14_074522) do
     t.bigint "language_province"
     t.bigint "user_id"
     t.string "passport_number"
+    t.text "photo_data"
+    t.text "passport_picture_data"
     t.index ["boursier_id"], name: "index_students_on_boursier_id"
     t.index ["faireanneelangue_id"], name: "index_students_on_faireanneelangue_id"
     t.index ["genre_id"], name: "index_students_on_genre_id"
