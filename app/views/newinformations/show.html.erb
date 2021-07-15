@@ -19,7 +19,7 @@
         <%#= link_to @newinformation.photo["filename"], @newinformation.photo_url, disposition:"inline" %>
       <%# else %>
         <%#= image_tag @newinformation.photo.representation(resize_to_limit: [100, 100]) if @newinformation.photo.representable?%>
-        <%= image_tag @newinformation.photo, width: "50%" if @newinformation.photo %>
+        <%= image_tag @newinformation.photo_url, width: "50%" if @newinformation.photo %>
       <%# end %>
     <%# end %>
 
