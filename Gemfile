@@ -49,6 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 end
 
 
@@ -65,7 +66,6 @@ gem 'petergate', '~> 2.0', '>= 2.0.1'
 #gem 'carrierwave', '~> 2.2'
 #gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 #gem 'carrierwave-aws', '~> 1.5'
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 
 gem 'rubyzip', '= 1.0.0'
 gem 'axlsx', '= 2.0.1'
@@ -78,4 +78,8 @@ gem 'redcarpet', '~> 3.5', '>= 3.5.1'
 #gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 #gem 'pdfjs_viewer-rails'
+#gem "aws-sdk-s3", require: false
+
+
 gem 'shrine', '~> 3.4'
+gem "shrine-cloudinary", "~> 1.1"
