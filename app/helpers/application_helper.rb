@@ -49,7 +49,7 @@ def bureau_nav_item
     },
     {
       url: bureausmembers_path,
-      title: "Roles"
+      title: "Executives"
     },
   ]
 end
