@@ -8,7 +8,8 @@
           <div class="form-group">
             <div class="row">
               <div class="card-body">
-                <div class="col-md-2"><b> Name : </b><%= bureausmember.user.student.name + " " + bureausmember.user.student.surname if bureausmember.user%></div>
+                <div class="col-md-2"><b>Name:</b>
+                  <%= bureausmember.user.student.name + " " + bureausmember.user.student.surname if bureausmember.user %></div>
                 <div class="col-md-2"><b>Role : </b><%= bureausmember.profil.name  if bureausmember.profil %></div>
                 <div class="col-md-4"><b>Registration date: </b><%= bureausmember.created_at %></div>
                 <div class="col-md-4"><b>Duration : </b><%= bureausmember.duration %></div>
