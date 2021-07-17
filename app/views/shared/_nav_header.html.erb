@@ -29,7 +29,7 @@
       </div>
     <% elsif current_user.role == :user %>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Deconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Sign out",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
       </div>
       <div class="nav-item">
@@ -49,7 +49,7 @@
       </div>
     <% elsif current_user.role == :site_admin or current_user.role == :president or current_user.role == :responsable %>
       <div class="nav-item">
-       <span class="style-color"><%= link_to "Deconnexion",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
+       <span class="style-color"><%= link_to "Sign out",destroy_user_session_path,method: :delete, class:"nav-link span" %></span>
         <%#= link_to "Configurer ma zone", zones_path, class:"nav-link span" if logged_in?(:site_admin, :president, :responsable) %>
       </div>
       <div class="nav-item">
