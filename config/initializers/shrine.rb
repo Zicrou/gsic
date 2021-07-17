@@ -8,7 +8,7 @@ Cloudinary.config(
 )
 
 Shrine.storages = {
-  #cache: Shrine::Storage::Cloudinary.new(prefix: "gsic/cache"), # for direct uploads
+  cache: Shrine::Storage::Cloudinary.new(prefix: "gsic/cache"), # for direct uploads
   store: Shrine::Storage::Cloudinary.new(prefix: "gsic"),
 }
 
