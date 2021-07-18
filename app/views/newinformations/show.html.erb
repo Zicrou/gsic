@@ -12,26 +12,7 @@
 
   <p style="">
     <strong>Image:</strong>
-    <%# if @newinformation.photo %>
-      <%# if @newinformation.photo["mime_type"] == "application/pdf" %>
-        <!--iframe src="<%#= rails_blob_path(@newinformation.photo) %>" height="800" width="500"></iframe-->
-        <%#= link_to @newinformation.photo.filename, polymorphic_url(@newinformation.photo), target: "_blank" %>
-        <%#= link_to @newinformation.photo["filename"], @newinformation.photo_url, disposition:"inline" %>
-      <%# else %>
-        <%#= image_tag @newinformation.photo.representation(resize_to_limit: [100, 100]) if @newinformation.photo.representable?%>
         <%= image_tag @newinformation.photo_url, width: "50%" if @newinformation.photo %>
-      <%# end %>
-    <%# end %>
-
-      <%# if @newinformation.photo.representable? %>
-        
-        <!--embed height="800" width="100%" src="<%#= polymorphic_url(@newinformation.photo) %>"-->
-
-        <%#= image_tag @newinformation.photo.variant(resize_to_limit: [100, 100]) %>
-      <%# elsif @newinformation.photo.attached? %>
-          <!--span><%#= image_tag @newinformation.photo, width: "50%" %></span-->
-      <%# end %>
-    <%# end %>
   </p>
   <% if logged_in?(:site_admin, :president) %>
     <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |<%= link_to 'Destroy', @newinformation, method: :delete, data: { confirm: 'Are you sure?' } %>

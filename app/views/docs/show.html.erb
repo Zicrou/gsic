@@ -12,16 +12,7 @@
   </p>
 
   <p style="border: 1px solid #5bc0de;">
-    <strong></strong>
-    <%#=image_tag @doc.image, width:'50%' if @doc.image.attached?  %>
-    <%# if @doc.image %>
-      <%# if @doc.image["mime_type"] == "application/pdf" %>
-        
-        <%#= link_to @doc.image["filename"], @doc.image_url, disposition:"inline" %>
-      <%# else %>
-        <%= link_to 'doc', @doc.image_url, width: "50%" if @doc.image %>
-      <%# end %>
-    <%# end %>
+    <%= link_to 'doc', @doc.image_url, width: "50%" if @doc.image %>
   </p>
 
   <%= link_to 'Edit', edit_doc_path(@doc) %> |
