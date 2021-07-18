@@ -19,7 +19,7 @@
         
         <%#= link_to @doc.image["filename"], @doc.image_url, disposition:"inline" %>
       <%# else %>
-        <%= image_tag @doc.image_url, width: "50%" if @doc.image %>
+        <%= link_to 'doc', @doc.image_url, width: "50%" if @doc.image %>
       <%# end %>
     <%# end %>
   </p>
