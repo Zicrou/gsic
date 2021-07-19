@@ -10,7 +10,7 @@ class Student < ApplicationRecord
     belongs_to :user
     #belongs_to :zone, optional: true
 
-    validates_presence_of :name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :boursier_id,:faireanneelangue_id, :language_province,  :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id, :user_id
+    validates_presence_of :name, :surname, :genre_id, :date_of_birth, :telephone, :email, :passport_number, :passport_expiration_date, :address, :are_you_in_china, :boursier_id,:faireanneelangue_id, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id, :user_id
     #validates_presence_of :name, :surname, :date_of_birth, :genre_id, :telephone, :passport, :passport_expiration_date, :address, :boursier_id, :faireanneelangue_id, :starting_year_major, :province_id, :university_major, :major, :langueformation_id, :major_duration, :graduation_year, :niveauformation_id, :passport_picture, :photo, :are_you_in_china, :email, :user_id # :province_uinversite_filiere,
 
     has_one_attached :passport_picture
