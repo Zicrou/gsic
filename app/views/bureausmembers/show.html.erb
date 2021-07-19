@@ -3,17 +3,17 @@
 
   <p>
     <strong>Member's name:</strong>
-    <%= @bureausmember.user.student.name + " " + @bureausmember.user.student.surname if @bureausmember.user %>
+    <%= @bureausmember.user.student.name + " " + @bureausmember.user.student.surname if !@bureausmember.user.student.nil? %>
   </p>
 
   <p>
     <strong>Member's email:</strong>
-    <%= @bureausmember.user.email if @bureausmember.user %>
+    <%= @bureausmember.user.email if !@bureausmember.user.student.nil? %>
   </p>
 
   <p>
     <strong>Profile:</strong>
-    <%= @bureausmember.profil.name if @bureausmember.user %>
+    <%= @bureausmember.profil.name %>
   </p>
 
   <p>
