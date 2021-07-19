@@ -12,7 +12,12 @@
 
   <p style="">
     <strong>Image:</strong>
-        <%= image_tag @newinformation.photo_url, width: "50%" if @newinformation.photo %>
+    <% if @newinformation.photo.content_type ==  "image/jpeg" or @newinformation.photo.content_type == "image/jpg" or @newinformation.photo.content_type == "image/png" %>
+        <%= image_tag @newinformation.photo, width: "50%" if @newinformation.photo %>
+    <% else %>
+      <%= link_to @newinformation.photo.filename, @newinformation.photo, width: "50%" if @newinformation.photo %>
+      <%#=  @doc.image.content_type %>
+    <% end %>
   </p>
   <% if logged_in?(:site_admin, :president) %>
     <%= link_to 'Edit', edit_newinformation_path(@newinformation) %> |<%= link_to 'Destroy', @newinformation, method: :delete, data: { confirm: 'Are you sure?' } %>
