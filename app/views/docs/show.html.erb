@@ -12,11 +12,13 @@
   </p>
 
   <p style="border: 1px solid #5bc0de;">
-    <% if @doc.image.content_type ==  "image/jpeg" or @doc.image.content_type == "image/jpg" or @doc.image.content_type == "image/png" %>
-      <%= image_tag @doc.image, width: "50%" if @doc.image %>
-    <% else %>
-      <%= link_to @doc.image.filename, @doc.image, width: "50%" if @doc.image %>
+    <% if @doc.image.attached? %>
+      <% if @doc.image.content_type ==  "image/jpeg" or @doc.image.content_type == "image/jpg" or @doc.image.content_type == "image/png" %>
+        <%= image_tag @doc.image, width: "50%" if @doc.image %>
+      <% else %>
+        <%= link_to @doc.image.filename, @doc.image, width: "50%" if @doc.image %>
       <%#=  @doc.image.content_type %>
+      <% end %>
     <% end %>
   </p>
 
