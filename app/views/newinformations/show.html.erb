@@ -16,7 +16,7 @@
       <% if @newinformation.photo.content_type ==  "image/jpeg" or @newinformation.photo.content_type == "image/jpg" or @newinformation.photo.content_type == "image/png" %>
         <%= image_tag @newinformation.photo, width: "50%" if @newinformation.photo %>
       <% else %>
-        <%= link_to @newinformation.photo.filename, @newinformation.photo, width: "50%" if @newinformation.photo %>
+        <%= link_to @newinformation.photo.filename, @newinformation.photo, width: "50%" %>
       <%#=  @doc.image.content_type %>
       <% end %>
     <% end %>
